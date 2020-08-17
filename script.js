@@ -12,7 +12,7 @@ class RacingSnail {
     }
 }
 
-crawl();
+
 
 
 let snailOne = new RacingSnail('Eduard', 'hainBaenderSchnecke');
