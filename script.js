@@ -7,19 +7,12 @@ class RacingSnail {
         this.crawledDistance = crawledDistance;
     }
 
-    crawl(currentTime) { // cant use functions inside class
-        let lastRenderTime = 0;
-        const SNAKE_SPEED = 2
-        window.requestAnimationFrame(crawl());
-        const secondsSinceLastRender = (currentTime / lastRenderTime) / 1000;
-        if (secondsSinceLastRender > 1 / SNAKE_SPEED) return
-
-        console.log('Render');
-        lastRenderTime = currentTime;
-
-        window.requestAnimationFrame(crawl())
+    crawl() {
+        // crawl function inside here
     }
 }
+
+crawl();
 
 
 let snailOne = new RacingSnail('Eduard', 'hainBaenderSchnecke');
