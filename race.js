@@ -15,6 +15,7 @@ class RacingSnail {
 
 
 
+
 let snailOne = new RacingSnail('Eduard', 'hainBaenderSchnecke');
 let snailTwo = new RacingSnail('Ulf', 'weinbergSchnecke');
 let snailThree = new RacingSnail('Frank', 'weisseHeidenSchnecke');  

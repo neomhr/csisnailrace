@@ -15,13 +15,33 @@
     <h1 id="title">Schneckenrennen</h1>
     <h3 id="smallTitle">CSI Testprojekt | Neo Mohr</h3>
 
-    <div id="game-board">
+    <div id="racing-track">
         <span id="number-one">1</span>
         <span id="number-two">2</span>
         <span id="number-three">3</span>
     </div>
 
-    <script src="script.js"></script>
+
+    <button id="openModalBtn">Wettbüro</button>
+
+    <div id="openBettingOffice" class="modal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <span class="close">&times;</span>
+                <h1>Betting Office</h1>
+            </div>
+            <div class="modalBody">
+                <p>Modal Body</p>
+            </div>
+            <div class="modalFooter">
+                <h3>Modal Footer</h3>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="race.js"></script>
+    <script src="modal.js"></script>
 </body>
 
 </html>
