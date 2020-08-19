@@ -22,21 +22,20 @@
     </div>
 
 
-    <button id="openModalBtn">Wettbüro</button>
+    <button id="openModalBtn" class="button">Wettbüro</button>
 
     <div id="openBettingOffice" class="modal">
 
         <div class="modalContent">
             <div class="modalHeader">
+                <h1 class="modalTitle">Wettbüro</h1>
                 <span class="close">&times;</span>
-                <h1>Betting Office</h1>
             </div>
 
             <div class="modalBody">
 
                 <p id="placeBetText">Place your Bet!</p>
                 <form id="snakeChosen">
-                    <label for="snakeChosen">Pick a Snail!</label>
                     <select name="snails" id="selectSnail">
                         <option value="snaleOne">Snail 1</option>
                         <option value="snaleTwo">Snail 2</option>
@@ -45,14 +44,18 @@
                 </form>
 
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="1000" value="500" class="slider" id="myRange">
-                    <p>Bet Amount: <span id="demo"></span>€</p>
+                    <input type="range" min="1" max="1000" value="500" class="slider" id="betAmount">
+                    <p>Bet Amount: <span id="amountChosen"></span>€</p>
                 </div>
+
+                <button type="submit" id="submitBet" class="button">
+                    Wetten!
+                </button>
 
             </div>
 
             <div class="modalFooter">
-                <h4>Disclaimer: Betting can be highly addictive!</h4>
+                <p>Achtung: Glücksspiel kann süchtig machen!</p>
             </div>
 
         </div>
