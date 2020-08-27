@@ -1,5 +1,4 @@
 
-
 var modal = document.getElementById('openBettingOffice');
 
 var btn = document.getElementById('openModalBtn');
