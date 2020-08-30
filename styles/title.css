@@ -33,6 +33,13 @@ h3 {
 
 h3 .footer-section-strong {
     font-weight: 600;
+    text-decoration: none;
+    color: #1b1b1b;
+}
+
+h3 .footer-section-strong:hover {
+    color: #474747;
+    transition: ease all 0.3s;
 }
 
 .floating-literal-r, .floating-literal-a, .floating-literal-c, .floating-literal-e {
@@ -113,4 +120,8 @@ h3 .footer-section-strong {
 .footer-section {
     display: flex;
     justify-content: center;
+}
+
+.button-section a {
+    text-decoration: none;
 }
