@@ -3,61 +3,99 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSI | Schneckenrennen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Rennbildschirm</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="https://img.icons8.com/metro/52/000000/snail.png">
 </head>
 
 <body>
+    <div class="wrapper">
 
-    <header class="navBar">
-        <h1 id="title">Mein Rennen</h1>
-    </header>
-
-    <div id="racing-track">
-        <span id="number-one">1</span>
-        <span id="number-two">2</span>
-        <span id="number-three">3</span>
-        <div id="testSnail"></div>
-    </div>
-
-    <button id="openModalBtn" class="button">Wettbüro</button>
-
-    <div id="openBettingOffice" class="modal">
-
-        <div class="modalContent">
-            <div class="modalHeader">
-                <h1 class="modalTitle">Wettbüro</h1>
-                <span class="close">&times;</span>
-            </div>
-            <div class="modalBody">
-                <p id="placeBetText">Place your Bet!</p>
-                <form id="snakeChosen">
-                    <select name="snails" id="selectSnail">
-                        <option value="snaleOne">Snail 1</option>
-                        <option value="snaleTwo">Snail 2</option>
-                        <option value="snaleThree">Snail 3</option>
-                    </select>
-                </form>
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="1000" value="500" class="slider" id="betAmount">
-                    <p>Bet Amount: <span id="amountChosen"></span>€</p>
-                </div>
-                <button type="submit" id="submitBet" class="button">
-                    Wetten!
-                </button>
-            </div>
-            <div class="modalFooter">
-                <p>Achtung: Glücksspiel kann süchtig machen!</p>
+        <div class="navbar">
+            <h1 id="title">Mein Rennen</h1>
+            <div class="menuIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 24 24"
+                    style=" fill:#000000;">
+                    <path
+                        d="M 3 5 A 1.0001 1.0001 0 1 0 3 7 L 21 7 A 1.0001 1.0001 0 1 0 21 5 L 3 5 z M 3 11 A 1.0001 1.0001 0 1 0 3 13 L 21 13 A 1.0001 1.0001 0 1 0 21 11 L 3 11 z M 3 17 A 1.0001 1.0001 0 1 0 3 19 L 21 19 A 1.0001 1.0001 0 1 0 21 17 L 3 17 z">
+                    </path>
+                </svg>
             </div>
         </div>
 
+        <div class="content">
+            <div class="racing-track">
+                <div class="track-one">
+                    <span class="track-numbers">1</span>
+                    <input type="range" class="slider" min="0" max="100" value="0" step="5">
+                </div>
+                <div class="track-two">
+                    <span class="track-numbers">2</span>
+                    <input type="range" class="slider" min="0" max="100" value="0" step="5">
+                </div>
+                <div class="track-three">
+                    <span class="track-numbers">3</span>
+                    <input type="range" class="slider" min="0" max="100" value="0" step="5">
+                </div>
+            </div>
+        </div>
+
+        <div class="ui-element-container">
+            <div class="buttons-container">
+
+                <button id="addSnailBtn" class="button-dark"> &plus; Schnecke hinzufügen</button>
+
+                <button id="openModalBtn" class="button-dark">Wettbüro</button>
+
+                <button id="startRaceBtn" class="button-blue" onclick="playButton()">Start!</button>
+
+            </div>
+        </div>
+
+        <div id="openBettingOffice" class="modal">
+
+            <div class="modalContent">
+                <div class="modalHeader">
+                    <h1 class="modalTitle">Wettbüro</h1>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modalBody">
+                    <p id="placeBetText">Place your Bet!</p>
+                    <form id="snakeChosen">
+                        <select name="snails" id="selectSnail">
+                            <option value="snaleOne">Snail 1</option>
+                            <option value="snaleTwo">Snail 2</option>
+                            <option value="snaleThree">Snail 3</option>
+                        </select>
+                    </form>
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="1000" value="500" class="slider" id="betAmount">
+                        <p>Bet Amount: <span id="amountChosen"></span>€</p>
+                    </div>
+                    <button id="submitBet" class="button-blue">
+                        Wetten!
+                    </button>
+                </div>
+                <div class="modalFooter">
+                    <p>Achtung: Glücksspiel kann süchtig machen!</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+    <!--Scripts-->
 
     <script src="scripts/race.js" defer type="module"></script>
     <script src="scripts/modal.js"></script>
+
+    <script>
+        function playButton() {
+            alert('Bitte füge zuerst Schnecken hinzu und schließe eine Wette ab.');
+        }
+    </script>
 </body>
 
 </html>

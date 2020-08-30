@@ -17,10 +17,9 @@ function main(currentTime) {
     update()
 }
 
-window.requestAnimationFrame(main)
+// window.requestAnimationFrame(main)
 
 function update() {
     updateSnailPosition()
 }
-
 
