@@ -29,15 +29,15 @@
             <div class="racing-track">
                 <div class="track-one">
                     <span class="track-numbers">1</span>
-                    <input type="range" class="slider" min="0" max="100" value="0" step="5">
+                    <input type="range" class="race-slider" min="0" max="100" value="0" step="5">
                 </div>
                 <div class="track-two">
                     <span class="track-numbers">2</span>
-                    <input type="range" class="slider" min="0" max="100" value="0" step="5">
+                    <input type="range" class="race-slider" min="0" max="100" value="0" step="5">
                 </div>
                 <div class="track-three">
                     <span class="track-numbers">3</span>
-                    <input type="range" class="slider" min="0" max="100" value="0" step="5">
+                    <input type="range" class="race-slider" min="0" max="100" value="0" step="5">
                 </div>
             </div>
         </div>
@@ -57,29 +57,34 @@
         <div id="openBettingOffice" class="modal">
 
             <div class="modalContent">
+
                 <div class="modalHeader">
                     <h1 class="modalTitle">Wettbüro</h1>
                     <span class="close">&times;</span>
                 </div>
+
                 <div class="modalBody">
-                    <p id="placeBetText">Place your Bet!</p>
-                    <form id="snakeChosen">
-                        <select name="snails" id="selectSnail">
-                            <option value="snaleOne">Snail 1</option>
-                            <option value="snaleTwo">Snail 2</option>
-                            <option value="snaleThree">Snail 3</option>
-                        </select>
-                    </form>
-                    <div class="slidecontainer">
-                        <input type="range" min="1" max="1000" value="500" class="slider" id="betAmount">
-                        <p>Bet Amount: <span id="amountChosen"></span>€</p>
+
+                    <p class="modalDescription">Hier kannst du deine Wetten abgeben.</p>
+
+                    <div class="form-container">
+
+                        <form id="chooseSnakeForm">
+                            <label for="selectSnail">Wähle eine Schnecke aus!</label><br>
+                            <select name="snails" id="selectSnail">
+                                <option value="snail-one">Snail 1</option>
+                                <option value="snail-two">Snail 2</option>
+                                <option value="snail-three">Snail 3</option>
+                            </select><br>
+                            <label for="betAmount">Lege deine Wettsumme fest!</label><br>
+                            <input type="range" min="1" max="1000" value="0" step="1" class="select-slider"
+                                id="betAmount"><br>
+                            <label style="margin-bottom: 0px;">Deine Wette: <span id="amountChosen"></span>€</label><br>
+                            <label for="betAmount">Möglicher Gewinn: X<span id="possibleReward"></span>€</label><br>
+                            <input type="submit" value="Wetten!" id="submitBet" class="button-blue"></input>
+                        </form>
+
                     </div>
-                    <button id="submitBet" class="button-blue">
-                        Wetten!
-                    </button>
-                </div>
-                <div class="modalFooter">
-                    <p>Achtung: Glücksspiel kann süchtig machen!</p>
                 </div>
             </div>
         </div>
