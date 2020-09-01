@@ -183,6 +183,8 @@ select {
     border: none;
     border-radius: 5px;
     margin-bottom: 30px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
 }
 
 select:focus {
