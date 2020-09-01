@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verwaltungsbildschirm</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header-bar">
+            <h1 class="big-title">Los geht's!</h1>
+            <p class="description-paragraph">Hier kannst du Rennen anlegen und deine Schnecken verwalten.</p>
+        </header>
+        <main class="content">
+            <!--Rennen erstellen Container-->
+            <div class="add-race">
+                <h3 class="section-heading">Rennen erstellen</h3>
+                <div class="add-race-form">
+                    <div class="race-name-container">
+                        <form>
+                            <input type="text" name="race-name" id="raceName" class="add-race-input"
+                                placeholder="Name des Rennens ...">
+                        </form>
+                    </div>
+                    <div class="snail-amount-container">
+                        <p class="snail-amount-picker-label">Teilnehmeranzahl</p>
+                        <button class="snail-amount-plus counter-button-dark" id="buttonIncrement">+</button>
+                        <button class="snail-amount-minus counter-button-dark" id="buttonDecrement">-</button>
+                    </div>
+                    <div class="submit-button-container">
+                        <button type="submit" class="add-race-button button-blue">Erstellen</button>
+                    </div>
+                </div>
+            </div>
+            <!--Schnecken erstellen Container-->
+
+        </main>
+    </div>
+</body>
+
+</html>
