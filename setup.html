@@ -20,7 +20,7 @@
                 <div class="add-race-form">
                     <div class="race-name-container">
                         <form>
-                            <input type="text" name="race-name" id="raceName" class="add-race-input"
+                            <input type="text" name="race-name" id="raceName" class="race-input text-input"
                                 placeholder="Name des Rennens ...">
                         </form>
                     </div>
@@ -29,13 +29,67 @@
                         <button class="snail-amount-plus counter-button-dark" id="buttonIncrement">+</button>
                         <button class="snail-amount-minus counter-button-dark" id="buttonDecrement">-</button>
                     </div>
-                    <div class="submit-button-container">
-                        <button type="submit" class="add-race-button button-blue">Erstellen</button>
+                    <div class="submit-btn-container">
+                        <button type="submit" class="add-race-btn btn-blue">Erstellen</button>
+                        <!--!!! CSS Ruleset button-blue in btn-blue ändern !!!-->
                     </div>
                 </div>
             </div>
             <!--Schnecken erstellen Container-->
+            <div class="add-snail">
+                <h3 class="section-heading">Schnecke erstellen</h3>
+                <div class="add-snail-form">
+                    <form>
+                        <div class="text-input-container">
+                            <input type="text" name="snail-name" id="snailName" class="snail-input text-input"
+                                placeholder="Name der Schnecke ...">
+                        </div>
+                        <div class="color-input-container">
+                            <input type="color" name="pick-color" id="colorPicker" class="color-input">
+                        </div>
+                    </form>
+                    <div class="submit-btn-container-2">
+                        <button type="submit" class="add-snail-btn">Erstellen</button>
+                    </div>
+                </div>
 
+            </div>
+            <!--Meine Rennen Container-->
+            <div class="my-races-container">
+                <table class="my-races" id="myRaces">
+                    <thead>
+                        <tr>
+                            <td>Meine Rennen</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rennen 1 (Test)</td>
+                        </tr>
+                        <tr>
+                            <td>Rennen 2 (Test)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--Meine Schnecken Container-->
+            <div class="my-races-container">
+                <table class="my-races" id="myRaces">
+                    <thead>
+                        <tr>
+                            <td>Meine Rennen</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rennen 1 (Test)</td>
+                        </tr>
+                        <tr>
+                            <td>Rennen 2 (Test)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </main>
     </div>
 </body>
