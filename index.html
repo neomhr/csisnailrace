@@ -12,7 +12,6 @@
 
 <body>
     <div class="wrapper">
-
         <div class="navbar">
             <h1 id="title">Mein Rennen</h1>
             <div class="menuIcon">
@@ -24,7 +23,6 @@
                 </svg>
             </div>
         </div>
-
         <div class="content">
             <div class="racing-track">
                 <div class="track-one">
@@ -41,34 +39,22 @@
                 </div>
             </div>
         </div>
-
         <div class="ui-element-container">
             <div class="buttons-container">
-
                 <button id="addSnailBtn" class="button-dark"> &plus; Schnecke hinzufügen</button>
-
                 <button id="openModalBtn" class="button-dark">Wettbüro</button>
-
                 <button id="startRaceBtn" class="button-blue" onclick="playButton()">Start!</button>
-
             </div>
         </div>
-
         <div id="openBettingOffice" class="modal">
-
             <div class="modalContent">
-
                 <div class="modalHeader">
                     <h1 class="modalTitle">Wettbüro</h1>
                     <span class="close">&times;</span>
                 </div>
-
                 <div class="modalBody">
-
                     <p class="modalDescription">Hier kannst du deine Wetten abgeben.</p>
-
                     <div class="form-container">
-
                         <form id="chooseSnakeForm">
                             <label for="selectSnail">Wähle eine Schnecke aus!</label><br>
                             <select name="snails" id="selectSnail">
@@ -83,7 +69,6 @@
                             <label for="betAmount">Möglicher Gewinn: X<span id="possibleReward"></span>€</label><br>
                             <input type="submit" value="Speichern" id="submitBet" class="button-blue"></input>
                         </form>
-
                     </div>
                 </div>
             </div>

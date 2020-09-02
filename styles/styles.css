@@ -7,7 +7,17 @@ body {
     overflow-y: hidden;
 }
 
+/* Pseudo Classes */
+
 ::selection {
+    background-color: #c4c4c4;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+::-moz-selection {
     background-color: #c4c4c4;
 }
 
@@ -319,7 +329,3 @@ label {
     justify-content: space-around;
     align-items: center;
 }
-
-
-
-
