@@ -4,7 +4,7 @@ body {
     margin: 0px;
     padding: 0px;
     border: none;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     overflow-y: hidden;
 }
 
@@ -76,7 +76,7 @@ h3 .footer-section-strong:hover {
     cursor: pointer;
     border-radius: 4px;
     color: #fff;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     transition: all ease 0.3s;
 }
 
@@ -97,7 +97,7 @@ h3 .footer-section-strong:hover {
     cursor: pointer;
     border-radius: 4px;
     color: #fff;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     transition: all ease 0.3s;
 }
 
@@ -127,21 +127,3 @@ h3 .footer-section-strong:hover {
     text-decoration: none;
 }
 
-ul .transition {
-    display: flex;
-    position: absolute;
-    z-index: 10;
-    height: 100vh;
-    width: 100%;
-    top: 0;
-    left: 0;
-    margin: 0px ;
-    pointer-events: none;
-    list-style-type: none;
-}
-
-ul .transition li {
-    transform: scaleY(0);
-    background: #ffff;
-    width: 20%;
-}
