@@ -82,7 +82,7 @@ label {
 .btn-blue {
     appearance: none;
     -webkit-appearance: none;
-    -moz-appearance: none;
+    -moz-apperance: none;
     padding: 15px 30px;
     border: none;
     background: rgb(54, 100, 248);
@@ -118,6 +118,9 @@ label {
     padding-right: 100px;
     margin-top: 40px;
     margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .content {
@@ -131,6 +134,27 @@ label {
 
 .big-title {
     margin-bottom: 15px;
+}
+
+table {
+    font-family: 'Inter', sans-serif;
+}
+
+td {
+    border-bottom: 1px solid #B9B9B9;
+    width: 300px;
+}
+
+thead td {
+    font-weight: 500;
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+
+tbody td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
 }
 
 /* Main Content */
@@ -187,6 +211,8 @@ label {
 }
 
 /* Tables */
+
+
 
 /* Weiter Button */
 
