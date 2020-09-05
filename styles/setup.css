@@ -8,45 +8,6 @@ body {
     background-color: #FBFBFB;
 }
 
-/* Rulesets */
-
-h1 {
-    font-size: 40px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    color: #1b1b1b;
-    margin: 0px;
-    padding: 0px;
-}
-
-h3 {
-    font-size: 20px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    color: #1b1b1b;
-    margin: 0px;
-    padding: 0px;
-}
-
-p {
-    font-size: 20px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    color: #848484;
-    margin: 0px;
-    padding: 0px;
-}
-
-label {
-    display: inline-block;
-    font-size: 20px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    color: #1b1b1b;
-    margin: 0px;
-    padding: 0px;
-}
-
 .section-heading {
     margin-bottom: 15px;
 }
@@ -65,52 +26,9 @@ label {
     outline: none;
 }
 
-.counter-btn-dark {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    height: 30px;
-    width: 30px;
-    border: none;
-    border-radius: 30px;
-    color: #fff;
-    background-color: #1b1b1b;
-    font-size: 17px;
-    font-family: 'Inter', sans-serif;
-    text-align: center;
-}
-
-.btn-blue {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-apperance: none;
-    padding: 15px 30px;
-    border: none;
-    background: rgb(54, 100, 248);
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 4px;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    transition: all ease 0.3s;
-}
-
-.btn-blue:hover {
-    background: rgb(34, 84, 250);
-    transform: translateY(-2px);
-}
-
-.btn-blue:focus {
-    outline: none;
-}
-
-/*Pseudo Classes*/
-
 ::selection {
     background-color: #c4c4c4;
 }
-
-/* Header */
 
 .header-bar {
     height: 100px;
@@ -137,84 +55,4 @@ label {
     margin-bottom: 15px;
 }
 
-table {
-    font-family: 'Inter', sans-serif;
-}
-
-td {
-    border-bottom: 1px solid #a1a1a1;
-    width: 30vw;
-}
-
-thead td {
-    font-weight: 500;
-    font-size: 25px;
-    padding-bottom: 25px;
-}
-
-tbody td {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 15px;
-    font-size: 17px;
-}
-
-/* Main Content */
-
-/* Rennen erstellen */
-
-.race-input {
-    margin-bottom: 30px;
-}
-
-.snail-amount-plus {
-    margin-right: 20px;
-    margin-top: 15px;
-}
-
-.snail-amount-minus {
-    margin-left: 20px;
-    margin-top: 15px;
-}
-
-.snail-amount-number {
-    font-size: 20px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-}
-
-.add-race-btn {
-    margin-top: 30px;
-}
-
-/* Schnecken erstellen */
-
-.snail-input {
-    margin-bottom: 30px;
-}
-
-.color-input {
-    margin-top: 15px;
-    appearance: none;
-    cursor: pointer;
-}
-
-.color-input::-webkit-color-swatch-wrapper {
-    padding: 0;
-}
-
-.color-input::-webkit-color-swatch {
-    border: none;
-    border-radius: 5px;
-}
-
-.add-snail-btn {
-    margin-top: 30px;
-}
-
-/* Tables */
-
-
-
-/* Weiter Button */
-
+.
