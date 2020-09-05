@@ -5,14 +5,15 @@ body {
     width: 100vw;
     overflow-y: hidden;
     overflow-x: hidden;
+    background-color: #FBFBFB;
 }
 
 /* Rulesets */
 
 h1 {
-    font-size: 40px;
+    font-size: 50px;
     font-family: 'Inter', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     color: #1b1b1b;
     margin: 0px;
     padding: 0px;
@@ -28,17 +29,17 @@ h3 {
 }
 
 p {
-    font-size: 17px;
+    font-size: 20px;
     font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    color: #8B8B8B;
+    font-weight: 300;
+    color: #848484;
     margin: 0px;
     padding: 0px;
 }
 
 label {
     display: inline-block;
-    font-size: 17px;
+    font-size: 20px;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     color: #1b1b1b;
@@ -51,13 +52,13 @@ label {
 }
 
 .text-input {
-    width: 300px;
-    padding: 10px 10px;
+    width: 30vw;
+    padding: 15px 15px;
     background-color: #f1f1f1;
     border: none;
     border-radius: 5px;
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
+    font-size: 17px;
 }
 
 .text-input:focus {
@@ -117,7 +118,7 @@ label {
     padding-left: 100px;
     padding-right: 100px;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -141,20 +142,21 @@ table {
 }
 
 td {
-    border-bottom: 1px solid #B9B9B9;
-    width: 300px;
+    border-bottom: 1px solid #a1a1a1;
+    width: 30vw;
 }
 
 thead td {
     font-weight: 500;
-    font-size: 20px;
-    padding-bottom: 15px;
+    font-size: 27px;
+    padding-bottom: 25px;
 }
 
 tbody td {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     padding-left: 15px;
+    font-size: 17px;
 }
 
 /* Main Content */

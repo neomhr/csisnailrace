@@ -13,15 +13,12 @@
     <div class="wrapper">
         <header class="header-bar">
             <div class="text-container">
-                <h1 class="big-title">Los geht's!</h1>
+                <h1 class="big-title">Einstellungen</h1>
                 <p class="description-paragraph">Hier kannst du deine Rennen und Schnecken verwalten.</p>
-            </div>
-            <div class="button-container">
-                <!--<a href="index.html" class="btn-blue" id="continueBtn">Weiter -></a>-->
             </div>
         </header>
         <main class="content">
-            <!--Rennen erstellen Container-->
+            <!--Rennen erstellen Container
             <div class="add-race">
                 <h3 class="section-heading">Rennen erstellen</h3>
                 <div class="add-race-form">
@@ -39,11 +36,10 @@
                     </div>
                     <div class="submit-btn-container">
                         <button type="submit" class="add-race-btn btn-blue" form="addRace">Erstellen</button>
-                        <!--!!! CSS Ruleset button-blue in btn-blue ändern !!!-->
                     </div>
                 </div>
             </div>
-            <!--Schnecken erstellen Container-->
+            Schnecken erstellen Container
             <div class="add-snail">
                 <h3 class="section-heading">Schnecke erstellen</h3>
                 <div class="add-snail-form">
@@ -62,7 +58,29 @@
                     </div>
                 </div>
 
+            </div>-->
+            <!--Meine Schnecken Container -->
+            <div class="table-container my-snails">
+                <table class="my-table my-snails" id="mySnails">
+                    <thead>
+                        <tr>
+                            <td>Meine Schnecken</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Testschnecke 1</td>
+                        </tr>
+                        <tr>
+                            <td>Testschnecke 2</td>
+                        </tr>
+                        <tr>
+                            <td>Testschnecke 3</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
             <!--Meine Rennen Container-->
             <div class="table-container my-snails">
                 <table class="my-table my-races" id="myRaces">
@@ -78,26 +96,24 @@
                         <tr>
                             <td>Rennen 2 (Test)</td>
                         </tr>
+                        <tr>
+                            <td>Rennen 3 (Test)</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            <!--Meine Schnecken Container-->
-            <div class="table-container my-snails">
-                <table class="my-table my-snails" id="mySnails">
-                    <thead>
-                        <tr>
-                            <td>Meine Schnecken</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Testschnecke 1</td>
-                        </tr>
-                        <tr>
-                            <td>Testschnecke 2</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!--Meine Schnecken Buttons-->
+            <div class="buttons-container my-snails-btn">
+                <button class="small-btn-dark add-snail-btn" id="addSnailBtn"></button>
+                <button class="small-btn-dark delete-snail-btn" id="deleteSnailBtn"></button>
+                <button class="small-btn-dark edit-snail-btn" id="editSnailBtn"></button>
+            </div>
+            <!--Meine Rennen Buttons -->
+            <div class="buttons-container my-races-btns">
+                <button class="small-btn-dark add-race-btn" id="addRaceBtn"></button>
+                <button class="small-btn-dark delete-race-btn" id="deleteRaceBtn"></button>
+                <button class="small-btn-dark edit-race-btn" id="editRaceBtn"></button>
+                <button class="small-btn-blue continue-btn" id="continueToRaceBtn"></button>
             </div>
         </main>
     </div>
