@@ -1,0 +1,97 @@
+/* neomhr.css - a carefully crafted, continuously updated css libary for easy styling by @neomhr.
+originally used for an application project.  */
+
+
+/* Headings, Subheadings and Paragraphs */
+
+h1 {
+    font-size: 40px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #1b1b1b;
+    margin: 0px;
+    padding: 0px;
+}
+
+h3 {
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #1b1b1b;
+    margin: 0px;
+    padding: 0px;
+}   
+
+p {
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: #848484;
+    margin: 0px;
+    padding: 0px;
+}
+
+label {
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #1b1b1b;
+    margin: 0px;
+    padding: 0px;
+}
+
+table {
+    font-family: 'Inter', sans-serif;
+}
+
+td {
+    border-bottom: 1px solid #a1a1a1;
+    width: 30vw;
+}
+
+thead td {
+    font-weight: 500;
+    font-size: 25px;
+    padding-bottom: 25px;
+}
+
+tbody td {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+    font-size: 17px;
+}
+
+.small-btn-dark {
+    appearance: none;
+    border: none;
+    border-radius: 6px;
+    height: 60px;
+    width: 60px;
+    background-color: #262626;
+    color: #fff;
+    transition: all ease 0.3s;
+}
+
+.small-btn-dark:hover {
+    background-color: #3d3d3d;
+    transform: translateY(-1px);
+}
+
+.small-btn-blue {
+    appearance: none;
+    border: none;
+    border-radius: 6px;
+    height: 60px;
+    width: 60px;
+    background-color: #0067DE;
+    color: #fff;
+    transition: all ease 0.3s;
+}
+
+.small-btn-blue:hover {
+    background-color: #0070f0;
+    transform: translateY(-1px);
+}
+

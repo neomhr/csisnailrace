@@ -11,7 +11,7 @@ body {
 /* Rulesets */
 
 h1 {
-    font-size: 50px;
+    font-size: 40px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     color: #1b1b1b;
@@ -148,7 +148,7 @@ td {
 
 thead td {
     font-weight: 500;
-    font-size: 27px;
+    font-size: 25px;
     padding-bottom: 25px;
 }
 
@@ -218,6 +218,3 @@ tbody td {
 
 /* Weiter Button */
 
-#continueBtn {
-    text-decoration: none;
-}
