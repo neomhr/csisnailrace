@@ -95,3 +95,7 @@ tbody td {
     transform: translateY(-1px);
 }
 
+small-btn-blue:focus {
+    outline: none;
+    border: none;
+}

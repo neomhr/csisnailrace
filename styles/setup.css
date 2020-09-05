@@ -34,7 +34,6 @@ body {
     height: 100px;
     width: 100vw;
     padding-left: 100px;
-    padding-right: 100px;
     margin-top: 40px;
     margin-bottom: 60px;
     display: flex;
@@ -45,14 +44,40 @@ body {
 .content {
     width: 100vw;
     padding-left: 100px;
-    padding-right: 100px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    column-gap: 40px;
+    row-gap: 60px;
 }
 
 .big-title {
     margin-bottom: 15px;
 }
 
-.
+.add-snail-btn, .delete-snail-btn {
+    margin-right: 35px;
+}
+
+.add-race-btn, .delete-race-btn, .edit-race-btn {
+    margin-right: 35px;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .header-bar {
+        padding-left: 50px;
+    }
+
+    .content {
+        padding-left: 50px;
+        column-gap: 20px;
+    }
+
+    .add-snail-btn, .delete-snail-btn {
+        margin-right: 20px;
+    }
+    
+    .add-race-btn, .delete-race-btn, .edit-race-btn {
+        margin-right: 20px;
+    }
+}
