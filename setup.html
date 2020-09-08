@@ -127,7 +127,30 @@
                 </button>
             </div>
         </main>
+        <div class="modal-section">
+            <div class="add-snail-modal">
+                <div class="modal-header">
+                    <h1 class="modal-heading">Schnecken erstellen</h1>
+                    <p class="modal-subheading">Lege hier deine Werte fest.</p>
+                </div>
+                <div class="modal-body">
+                    <div class="input-box">
+                        <form id="add-snail-modal-form">
+                            <label for="add-snail-modal-form" class="label label-name">Name</label>
+                            <input type="text" name="snail-name" id="snailName" placeholder="Gib einen Namen ein ...">
+                            <label for="add-snail-modal-form" class="label label-color">Farbe
+                                (optional)</label>
+                            <input type="color" name="snail-color" id="snailColor">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./scripts/setup.js"></script>
 </body>
 
 </html>

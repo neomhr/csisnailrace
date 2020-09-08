@@ -35,10 +35,11 @@ body {
     width: 100vw;
     padding-left: 100px;
     margin-top: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all ease 0.3s;
 }
 
 .content {
@@ -48,6 +49,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 40px;
     row-gap: 60px;
+    transition: all ease 0.3s;
 }
 
 .big-title {
