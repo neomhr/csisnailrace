@@ -31,7 +31,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Testschnecke 1</td>
+                            <td data-="Test">Testschnecke 1</td>
                         </tr>
                         <tr>
                             <td>Testschnecke 2</td>
@@ -66,7 +66,7 @@
             </div>
             <!--Meine Schnecken Buttons-->
             <div class="buttons-container my-snails-btn">
-                <button class="small-btn-dark add-snail-btn" id="addSnailBtn">
+                <button id="addSnailBtn" class="small-btn-dark add-snail-btn" onclick="openAddSnailModal()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="#fff" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-plus">
@@ -82,7 +82,7 @@
                         <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
                     </svg>
                 </button>
-                <button class="small-btn-dark edit-snail-btn" id="editSnailBtn">
+                <button id="editSnailBtn" class="small-btn-dark edit-snail-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="#fff" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-edit-3">
@@ -128,20 +128,26 @@
             </div>
         </main>
         <div class="modal-section">
-            <div class="add-snail-modal">
-                <div class="modal-header">
-                    <h1 class="modal-heading">Schnecken erstellen</h1>
-                    <p class="modal-subheading">Lege hier deine Werte fest.</p>
-                </div>
-                <div class="modal-body">
-                    <div class="input-box">
-                        <form id="add-snail-modal-form">
-                            <label for="add-snail-modal-form" class="label label-name">Name</label>
-                            <input type="text" name="snail-name" id="snailName" placeholder="Gib einen Namen ein ...">
-                            <label for="add-snail-modal-form" class="label label-color">Farbe
-                                (optional)</label>
-                            <input type="color" name="snail-color" id="snailColor">
-                        </form>
+            <div class="add-snail-modal modal" id="addSnailModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-heading">Schnecken erstellen</h1>
+                        <span class="close" id="closeAddSnailModalBtn">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <p class="modal-subheading">Lege hier deine Werte fest.</p><br>
+                        <div class="input-box">
+                            <form id="add-snail-modal-form">
+                                <label for="add-snail-modal-form" class="label label-name">Name</label><br>
+                                <input type="text" name="snail-name" id="snailName" class="text-input snail-name-input"
+                                    placeholder="Gib einen Namen ein ..." required><br>
+                                <label for="add-snail-modal-form" class="label label-color">Farbe
+                                    (optional)</label><br>
+                                <input type="color" name="snail-color" id="snailColor" class="snail-color-input"><br>
+                                <button type="submit" class="btn-blue" id="addSnailSubmitBtn">Hinzufügen
+                                    <span>&rarr;</span></button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -151,6 +157,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./scripts/setup.js"></script>
+    <script src="./scripts/modal.js"></script>
 </body>
 
 </html>

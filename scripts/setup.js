@@ -7,46 +7,71 @@ for (var i = 0; i < elements.length; i++) {
     });
 }
 
+// //#region Delete Button Dialogs
+// Set variables
+var deleteRaceButton = document.getElementById('deleteRaceBtn');
+var deleteSnailButton = document.getElementById('deleteSnailBtn');
 
-// Delete Button Dialogs
-
-// Get Button and add an Eventhandler
-document.getElementById('deleteSnailBtn').onclick = function () {
-    // //#region  Sweet Alert Libary Code //#endregion
+//Add onclick event
+deleteRaceButton.onclick = function () {
+    // // Sweet Alert Libary Code
     swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this imaginary file!",
+        title: "Bist du dir sicher?",
+        text: "Du kannst deine Rennen nicht wiederherstellen",
         icon: "warning",
         buttons: true,
         dangerMode: true,
     })
         .then((willDelete) => {
             if (willDelete) {
-                swal("Poof! Your imaginary file has been deleted!", {
+                swal("Dein Rennen wurde erfolgreich gelöscht", {
                     icon: "success",
+                    button: {
+                        text: "Okay"
+                    }
                 });
             } else {
-                swal("Your imaginary file is safe!");
+                swal("Dein Rennen wurde nicht gelöscht");
             }
         });
 }
 
-// Exactly the same, for the deleteSnailBtn
-document.getElementById('deleteSnailBtn').onclick = function () {
+// Exactly the same for the snail delete button
+deleteSnailButton.onclick = function () {
+    // sweet alert libary code
     swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this imaginary file!",
+        title: "Bist du dir sicher?",
+        text: "Du kannst deine Schnecke nicht wiederherstellen.",
         icon: "warning",
         buttons: true,
         dangerMode: true,
     })
         .then((willDelete) => {
             if (willDelete) {
-                swal("Poof! Your imaginary file has been deleted!", {
+                swal("Okay, deine Schnecke wurde gelöscht.", {
                     icon: "success",
                 });
             } else {
-                swal("Your imaginary file is safe!");
+                swal("Deine Schnecke wurde nicht gelöscht.");
             }
         });
+}
+// //#endregion
+
+function openAddSnailModal() {
+    document.getElementById('addSnailModal').style.display = "block";
+}
+
+function closeAddSnailModal() {
+    document.getElementById('closeAddSnailModal').style.display = "none"
+}
+
+window.onclick = function (event) {
+    if (event.target == addSnailModal) {
+        addSnailModal.style.display = "none";
+    }
+}
+
+function openEditSnailModal() {
+    document.getElementById('editSnailModal').style.display = "block";
 }

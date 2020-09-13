@@ -5,7 +5,7 @@ originally used for an application project.  */
 /* Headings, Subheadings and Paragraphs */
 
 h1 {
-    font-size: 40px;
+    font-size: 35px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     color: #1b1b1b;
@@ -98,4 +98,45 @@ tbody td {
 small-btn-blue:focus {
     outline: none;
     border: none;
+}
+
+/* Sweet Alert Libary Styles */
+
+.swal-title {
+    font-family: 'Inter', sans-serif;
+}
+
+.swal-text {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.swal-button--confirm {
+    appearance: none;
+    border: none;
+    border-radius: 6px;
+    padding: 15px 25px;
+    color: #fff;
+    background-color: #68A1EF;
+    transition: all ease 0.3s;
+}
+
+.swal-button--confirm:hover {
+    transform: translateY(-1px);
+}
+
+.swal-button--cancel {
+    appearance: none;
+    border: none;
+    border-radius: 6px;
+    padding: 15px 25px;
+    background-color: #EFEFEF;
+    color: #1B1B1B;
+    font-weight: 300;
+    transition: all ease 0.3s;
+}
+
+.swal-button--cancel:hover {
+    transform: translateY(-1px);
+    background-color: #a1a1a1;
 }
