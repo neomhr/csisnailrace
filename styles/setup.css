@@ -107,6 +107,10 @@ body {
     display: flex;
 }
 
+.modal-body-edit-race {
+    display: flex;
+}
+
 .input-box-ar {
     margin-right: 125px;
 }
@@ -115,7 +119,15 @@ body {
     margin-bottom: 25px;
 }
 
+.new-race-name-input {
+    margin-bottom: 25px;
+}
+
 .label-participants {
+    margin-bottom: 10px;
+}
+
+.label-new-participants {
     margin-bottom: 10px;
 }
 
