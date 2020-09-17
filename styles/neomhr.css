@@ -14,7 +14,7 @@ h1 {
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 25px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     color: #1b1b1b;
@@ -23,7 +23,7 @@ h3 {
 }   
 
 p {
-    font-size: 20px;
+    font-size: 17px;
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     color: #848484;
@@ -33,7 +33,7 @@ p {
 
 label {
     display: inline-block;
-    font-size: 20px;
+    font-size: 17px;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     color: #1b1b1b;
@@ -52,7 +52,7 @@ td {
 
 thead td {
     font-weight: 500;
-    font-size: 25px;
+    font-size: 17px;
     padding-bottom: 25px;
 }
 

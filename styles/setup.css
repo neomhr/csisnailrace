@@ -3,9 +3,16 @@ body {
     padding: 0px;
     height: 100vh;
     width: 100vw;
-    overflow-y: hidden;
-    overflow-x: hidden;
     background-color: #FBFBFB;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 1100px;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 .section-heading {
@@ -32,8 +39,6 @@ body {
 
 .header-bar {
     height: 100px;
-    width: 100vw;
-    padding-left: 100px;
     margin-top: 40px;
     margin-bottom: 40px;
     display: flex;
@@ -43,8 +48,6 @@ body {
 }
 
 .content {
-    width: 100vw;
-    padding-left: 100px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 40px;
@@ -75,6 +78,7 @@ body {
     overflow: auto; 
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
+
     -webkit-animation-name: fadeIn; 
     -webkit-animation-duration: 0.4s;
     animation-name: fadeIn;
@@ -82,10 +86,9 @@ body {
 }
 
 .modal-header {
-    padding-top: 20px;
-    padding-left: 100px;
-    padding-bottom: 5px;
-    margin-top: 10px;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 40px;
     border-radius: 10px 10px 0px 0px;
     background-color: #fff;
     color: #1b1b1b;
@@ -95,7 +98,38 @@ body {
 }
 
 .modal-body {
-    padding-left: 100px;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 100px;
+}
+
+.modal-body-add-race {
+    display: flex;
+}
+
+.input-box-ar {
+    margin-right: 125px;
+}
+
+.race-name-input {
+    margin-bottom: 25px;
+}
+
+.label-participants {
+    margin-bottom: 10px;
+}
+
+.snails-dropdown {
+    margin-bottom: 150px;
+    padding: 15px 15px; 
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    width: 28vw;
 }
 
 .modal-content {
@@ -103,26 +137,30 @@ body {
     bottom: 0;
     background-color: #fefefe;
     width: 100%;
+    border-radius: 10px 10px 0px 0px;
     -webkit-animation-name: slideIn;
     -webkit-animation-duration: 0.4s;
     animation-name: slideIn;
     animation-duration: 0.4s;
-    border-radius: 10px;
-    height: 70vh;
 }
+
+
 
 .modal-subheading {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.close {
-    font-size: 48px;
-    margin-right: 100px;
+.feather-x {
     cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.feather-x:hover {
+    color: #666666;
 }
 
 .modal-heading {
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 .label-name {
@@ -130,7 +168,23 @@ body {
 }
 
 .snail-name-input {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+}
+
+::-webkit-input-placeholder { 
+    font-size: 15px;
+}
+
+::-moz-placeholder { 
+    font-size: 15px;
+}
+
+:-ms-input-placeholder { 
+    font-size: 15px;  
+}
+
+:-moz-placeholder { 
+    font-size: 15px;  
 }
 
 .label-color {
@@ -158,13 +212,37 @@ body {
 }
 
 .btn-blue:hover {
-    background: rgb(34, 84, 250);
+    background: rgb(75, 117, 253);
     transform: translateX(2px);
+}
+
+button:disabled {
+    background-color: #dddd;
+}
+
+button:disabled:hover {
+    transform: translateY(0);
+    background-color: #dddd;
 }
 
 #addSnailSubmitBtn span {
     transform: translateX(1px);
 }
+
+.is-empty-text {
+    margin-top: 15px;
+    line-height: 30px;
+}
+
+.btn-teritary {
+    appearance: none;
+    border: none;
+    background-color: #1b1b1b;
+    color: #fff;
+    border-radius: 4px;
+    padding: 15px 15px;
+}
+
 
 
 
@@ -197,11 +275,6 @@ body {
     to {bottom: 0; opacity: 1;}
 }
 
-@keyframes slideOut {
-    from {bottom: 0; opacity: 1;}
-    to {bottom: -300px; opacity: 0;}
-}
-
 @-webkit-keyframes fadeIn {
     from {opacity: 0;}
     to {opacity: 1;}
@@ -211,3 +284,5 @@ body {
     from {opacity: 0;}
     to {opacity: 1;}
 }
+
+
