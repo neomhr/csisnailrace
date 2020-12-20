@@ -207,12 +207,6 @@ function storageAvailable(type) {
 // For Races: `race_${enteredRaceName}`
 // For Race-Participants: `${enteredRaceName}_raceParticipant${addedSnailName}`
 
-// swal(
-//     'Whoops!',
-//     'Bitte fülle alle Felder aus und stelle sicher, dass du kein preserved Keyword als Namen verwendet hast.',
-//     'error'
-// );
-
 // Snail Constructor Function
 function Snail(name, speed) {
     this.name = name;

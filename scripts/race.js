@@ -203,10 +203,6 @@ startRaceBtn.addEventListener('click', () => {
 
             }
 
-            let rankingTrackOne = document.getElementById('rankingOne');
-            let rankingTrackTwo = document.getElementById('rankingTwo');
-            let rankingTrackThree = document.getElementById('rankingThree');
-
         }, 30)
     }
 })

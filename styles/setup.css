@@ -121,8 +121,6 @@ input:focus {
     transition: all 0.3s ease;
 }
 
-
-
 .snail-name-container {
     display: flex;
     flex-direction: column;
