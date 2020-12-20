@@ -1,28 +1,47 @@
 
-// Display added Snail in Table 
-function displayAddedSnail() {
+// Save to Local Storage
 
-    // Declare Variables (for easy "access")
-    var tableBody = document.getElementById("table-body");
-    var tableData = document.createElement("td");
-    var row = document.createElement("tr");
+let text = document.getElementById('text');
+let input = document.getElementById('storage');
+let btn = document.getElementById('button');
 
-    // Get Input Value (what the user entered)
-    tableData.innerHTML = document.getElementById("snailName").value;
+input.addEventListener('input', letter => {
+    text.textContent = letter.target.value
+})
 
-    // Apend td and row (display what the user entered)
-    row.appendChild(tableData);
-    tableBody.appendChild(row);
+let displayInTable = () => {
+    let createTableRow = document.createElement('tr');
+    let insertTableData = document.createElement('td');
+
+
+
+    /* let saveToLocalStorage = () => {
+        localStorage.setItem('key' + text.textContent, text.textContent)
+    }*/
 }
 
-$(function () {
-    $("#selectable").selectable({
-        stop: function () {
-            var result = $("#select-result").empty();
-            $(".ui-selected", this).each(function () {
-                var index = $("#selectable li").index(this);
-                result.append(" #" + (index + 1));
-            });
+btn.addEventListener('click', displayInTable);
+
+
+// Add actvive class
+let list = document.getElementById('u-list');
+let listItems = list.getElementsByClassName('li');
+
+for (let i = 0; i < listItems.length; i++) {
+    listItems[i].addEventListener('click', function () {
+        let current = document.getElementsByClassName('active');
+        if (current.length < 0) {
+            current[0].className = current[0].className.replace(' active', '');
         }
+        this.className += ' active';
     });
+};
+
+document.getElementById('input').addEventListener('click', () => {
+    let value = document.getElementById('select').value;
+    let li = "<li>" + value + "</li>";
+    document.getElementById('list').appendChild(li);
 });
+
+
+

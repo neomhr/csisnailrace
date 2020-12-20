@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schneckenrennen | Einstellungen</title>
+    <title>Einstellungen · Schneckenrennen</title>
     <link rel="stylesheet" href="./styles/setup.css">
     <link rel="stylesheet" href="./styles/neomhr.css">
+    <link rel="stylesheet" href="./styles/transition.css">
     <link rel="icon" href="./assets/SnailIcon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
+    <script defer src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+    <script defer src="./scripts/transition.js"></script>
 </head>
 
-<body>
+<body id="swup" class="transition-fade">
 
     <!-- Wrapping the Page -->
 
@@ -36,7 +37,8 @@
             <div class="table-container my-snails">
                 <table class="my-table my-snails" id="mySnails">
                     <thead id="snailTableHead">
-                        <tr>
+                        <tr style="background-color: #FBFBFB; cursor: default;">
+                            <!--Overrides the Hover Styles-->
                             <td>Meine Schnecken</td>
                         </tr>
                     </thead>
@@ -44,7 +46,7 @@
                 </table>
                 <p class="is-empty-text" id="empty">
                     Du hast noch keine Schnecken erstellt.<br>
-                    Klicke auf das + um welche zu erstellen.
+                    Klicke auf das + um eine zu erstellen.
                 </p>
             </div>
 
@@ -52,21 +54,21 @@
             <div class="table-container my-races">
                 <table class="my-table my-races" id="myRaces">
                     <thead id="raceTableHead">
-                        <tr>
+                        <tr style="background-color: #FBFBFB; cursor: default;">
                             <td>Meine Rennen</td>
                         </tr>
                     </thead>
                     <tbody id="raceTableBody"></tbody>
                 </table>
-                <p class="is-empty-text" id="empty">
+                <p class="is-empty-text" id="empty2">
                     Du hast noch keine Rennen erstellt.<br>
-                    Klicke auf das + um welche zu erstellen.
+                    Klicke auf das + um eins zu erstellen.
                 </p>
             </div>
 
             <!-- My Snails Modal Buttons: Calling the function to open the specific modal -->
-            <div class="buttons-container my-snails-btn">
-                <button id="addSnailBtn" class="small-btn-dark add-snail-btn">
+            <div class="buttons-container my-snails-btn" id="buttonContainer">
+                <button id="openAddSnailModalBtn" class="small-btn-dark add-snail-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="#fff" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-plus">
@@ -82,7 +84,7 @@
                         <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
                     </svg>
                 </button>
-                <button id="editSnailBtn" class="small-btn-dark edit-snail-btn" disabled>
+                <button id="openEditSnailModalBtn" class="small-btn-dark edit-snail-btn" disabled>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="#fff" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-edit-3">
@@ -93,8 +95,8 @@
             </div>
 
             <!--My Races Modal Buttons: Calling the function to open the specific modal -->
-            <div class="buttons-container my-races-btns">
-                <button class="small-btn-dark add-race-btn" id="addRaceBtn">
+            <div class="buttons-container my-races-btns" id="raceButtonContainer">
+                <button class="small-btn-dark add-race-btn" id="openAddRaceModalBtn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="#fff" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-plus">
@@ -110,7 +112,7 @@
                         <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
                     </svg>
                 </button>
-                <button class="small-btn-dark edit-race-btn" id="editRaceBtn">
+                <button class="small-btn-dark edit-race-btn" id="openEditRaceModalBtn" disabled>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="#fff" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-edit-3">
@@ -140,10 +142,10 @@
                     <!-- Add Snail Modal Header -->
 
                     <div class="modal-header">
-                        <h3 class="modal-heading">Schnecken erstellen</h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
-                            onclick="hideModal()" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                            stroke-linejoin="round" class="feather feather-x">
+                        <h3 class="modal-heading">Neue Schnecke</h3>
+                        <svg id="closeAddSnailModal" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
@@ -152,13 +154,21 @@
                     <!-- Add Snail Modal Body -->
 
                     <div class="modal-body">
-                        <p class="modal-subheading">Erstelle hier eine Schnecke</p><br>
+                        <p class="modal-subheading">Hier kannst du eine neue Schnecke erstellen</p>
                         <div class="input-box">
-                            <label for="add-snail-modal-form" class="label label-name">Name</label><br>
-                            <input type="text" name="snail-name" id="snailName" class="text-input snail-name-input"
-                                placeholder="Gib einen Namen ein ..."><br>
-                            <input type="submit" class="btn-blue" id="addSnailSubmitBtn" value="Hinzufügen ->"
-                                onclick="displayAddedSnail(), hideModal(), inputRequired()"></input>
+                            <div class="snail-name-container">
+                                <label for="add-snail-modal-form" class="label label-name">Name</label>
+                                <input type="text" name="snail-name" id="snailName" class="text-input snail-name-input"
+                                    placeholder="Gib einen Namen ein ...">
+                            </div>
+                            <div class="snail-speed-container">
+                                <label for="snailSpeed" class="label label-speed">Geschwindigkeit</label>
+                                <input type="number" name="snail-speed" min="0" max="100" id="snailSpeed"
+                                    class="num-input snail-speed-input" placeholder="1">
+                            </div>
+                        </div>
+                        <div class="submit-button-container">
+                            <input type="submit" class="btn-blue" id="addSnailSubmitBtn" value="Erstellen ->"></input>
                         </div>
                     </div>
                 </div>
@@ -179,9 +189,9 @@
 
                     <div class="modal-header">
                         <h3 class="modal-heading">Schnecken bearbeiten</h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
-                            onclick="hideModal2()" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                            stroke-linejoin="round" class="feather feather-x">
+                        <svg id="closeEditSnailModal" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
@@ -190,44 +200,56 @@
                     <!-- Edit Snail Modal Body -->
 
                     <div class="modal-body">
-                        <p class="modal-subheading">Hier kannst du den Namen deiner Schnecke ändern.</p><br>
+                        <p class="modal-subheading">Hier kannst du deine Schnecke bearbeiten</p>
                         <div class="input-box">
-                            <label class="label label-name">Neuer Name</label><br>
-                            <input type="text" name="snail-name" id="snailName" class="text-input snail-name-input"><br>
-                            <input type="submit" class="btn-blue" id="editSnailSubmitBtn" value="Aktualisieren ->"
-                                onclick="displayAddedSnail(), hideModal()"></input>
+                            <div class="snail-name-container">
+                                <label for="newSnailName" class="label label-n-name">Neuer Name</label>
+                                <input type="text" name="new-snail-name" id="newSnailName"
+                                    class="text-input snail-new-name-input">
+                            </div>
+                            <div class="snail-speed-container">
+                                <label for="newSnailSpeed" class="label label-n-speed">Neue Geschwindigkeit</label>
+                                <input type="number" name="snail-speed" min="0" max="100" id="newSnailSpeed"
+                                    class="num-input snail-speed-input">
+                            </div>
+                        </div>
+                        <div class="submit-button-container">
+                            <input type="submit" class="btn-blue" id="editSnailSubmitBtn"
+                                value="Aktualisieren ->"></input>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- End of Edit Snail Modal -->
+        <!-- End of Edit Snail Modal -->
 
-            <!-- Add Race Modal -->
+        <!-- Add Race Modal -->
 
-            <div class="add-race-modal modal" id="addRaceModal">
+        <div class="add-race-modal modal" id="addRaceModal">
 
 
-                <div class="modal-content" id="addRaceModContent">
+            <div class="modal-content" id="addRaceModContent">
 
-                    <!-- Add Race Modal Header -->
+                <!-- Add Race Modal Header -->
 
-                    <div class="modal-header">
-                        <h3 class="modal-heading">Rennen erstellen</h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
-                            onclick="hideModal3()" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                            stroke-linejoin="round" class="feather feather-x">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </div>
+                <div class="modal-header">
+                    <h3 class="modal-heading">Rennen erstellen</h3>
+                    <svg id="closeAddRaceModal" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
 
-                    <!-- Add Race Modal Body -->
+                <!-- Add Race Modal Body -->
 
-                    <div class="modal-body">
-                        <p class="modal-subheading">Lege ein neues Rennen an und füge mindestens 2 Schnecken hinzu.</p>
-                        <br>
-                        <div class="modal-body-add-race">
+                <div class="modal-body">
+                    <p class="modal-subheading">Lege ein neues Rennen an und füge bis zu 3 Schnecken hinzu.</p>
+                    <br>
+                    <div class="modal-body-add-race">
+                        <div class="add-race-container">
                             <div class="input-box-ar">
                                 <label class="label label-name">Name des Rennens</label><br>
                                 <input type="text" name="race-name" id="raceName" class="text-input race-name-input"
@@ -236,130 +258,130 @@
                             When submit is clicked, the snail is added to the race object and the name of
                             the snail is displayed as a <td> in the table next to the input. -->
                                 <label class="label label-participants">Teilnehmende Schnecken</label><br>
-                                <select name="participants" id="participatingSnails" class="snails-dropdown">
-                                    <option value="snail-one">Schnecke 1 (Test)</option>
-                                    <option value="snail-two">Schnecke 2 (Test)</option>
-                                    <option value="snail-three">Schnecke 3 (Test)</option>
-                                </select>
-                                <button id="addSnailToRacetableBtn" class="btn-teritary">
+                                <div class="addSnailsToRaceContainer">
+                                    <select name="participants" id="participatingSnails" class="snails-dropdown">
+                                        <!-- Dynamic Options will be populated in the JS Code-->
+
+                                    </select>
+                                    <input type="button" id="addSnailToRacetableBtn" class="btn-teritary" value="+">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                                         fill="none" stroke="#fff" stroke-width="2.0" stroke-linecap="round"
                                         stroke-linejoin="round" class="feather feather-plus">
                                         <line x1="12" y1="5" x2="12" y2="19"></line>
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
                                     </svg>
-                                </button><br>
-                                <input type="submit" class="btn-blue" id="addRaceSubmitBtn"
+                                    </input><br>
+                                </div>
+                                <input type="button" class="btn-blue" id="addRaceSubmitBtn"
                                     value="Rennen erstellen +"></input>
                             </div>
+
                             <!-- Added Snails are being displayed in this Table (Max. 5)-->
                             <div class="input-display-box">
-                                <table>
-                                    <thead id="racesTHead">
-                                        <tr>
-                                            <td>Teilnehmer</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="racesTBody">
-                                        <tr>
-                                            <td>Schnecke 1 (Test)</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Schnecke 2 (Test)</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Schnecke 3 (Test)</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <ul class="list header-list">
+                                    <li class="title-li">
+                                        Teilnehmende Schnecken
+                                    </li>
+                                </ul>
+                                <ul class="list" id="participatingSnailsList">
+                                </ul>
+                                <p id="participatingSnailsListPlaceholder" class="placeholderTable">
+                                    Du hast noch keine Schnecken zu deinem Rennen hinzugefügt. Klicke auf das + um
+                                    eine hinzuzufügen.
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Edit Race Modal -->
+        <!-- Edit Race Modal -->
 
-            <div class="edit-race-modal modal" id="editRaceModal">
+        <div class="edit-race-modal modal" id="editRaceModal">
 
 
-                <div class="modal-content" id="editRaceModContent">
+            <div class="modal-content" id="editRaceModContent">
 
-                    <!-- Edit Race Modal Header -->
+                <!-- Edit Race Modal Header -->
 
-                    <div class="modal-header">
-                        <h3 class="modal-heading">Rennen bearbeiten</h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
-                            onclick="hideModal4()" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                            stroke-linejoin="round" class="feather feather-x">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </div>
+                <div class="modal-header">
+                    <h3 class="modal-heading">Rennen bearbeiten</h3>
+                    <svg id="closeEditRaceModal" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
 
-                    <!-- Edit Race Modal Body -->
+                <!-- Edit Race Modal Body -->
 
-                    <div class="modal-body">
-                        <p class="modal-subheading">Bearbeite dein Rennen und speichere es.</p>
-                        <br>
-                        <div class="modal-body-edit-race">
-                            <div class="input-box-ar">
-                                <label class="label label-name">Name des Rennens</label><br>
-                                <input type="text" name="new-race-name" id="newRaceName"
-                                    class="text-input new-race-name-input" placeholder="Gebe einen Namen ein"><br>
-                                <!-- Select Options with previously added snails as options.
-                            When submit is clicked, the snail is added to the race object and the name of
-                            the snail is displayed as a <td> in the table next to the input. -->
-                                <label class="label label-new-participants">Teilnehmende Schnecken</label><br>
-                                <select name="new-participants" id="newParticipatingSnails" class="snails-dropdown">
-                                    <option value="snail-one">Neue Schnecke 1 (Test)</option>
-                                    <option value="snail-two">Neue Schnecke 2 (Test)</option>
-                                    <option value="snail-three">Neue Schnecke 3 (Test)</option>
-                                </select>
-                                <button id="addNewSnailToRacetableBtn" class="btn-teritary">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
-                                        fill="none" stroke="#fff" stroke-width="2.0" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-plus">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </button><br>
-                                <input type="submit" class="btn-blue" id="editRaceSubmitBtn"
-                                    value="Aktualisieren ->"></input>
+                <div class="modal-body">
+                    <p class="modal-subheading">Bearbeite den Namen oder die Teilnehmer deines Rennens</p>
+                    <br>
+                    <div class="modal-body-edit-race">
+                        <div class="edit-race-container">
+                            <div class="edit-race-body-content-container">
+                                <div class="input-box-edit-race">
+
+                                    <div class="new-race-name-container">
+                                        <label class="label label-new-name">Neuer Name</label>
+                                        <input type="text" name="new-race-name" id="newRaceName"
+                                            class="text-input new-race-name-input" placeholder="Gebe einen Namen ein">
+                                    </div>
+
+                                    <div class="add-new-snails-container">
+
+                                        <label class="label label-new-participants">Teilnehmende Schnecken</label>
+                                        <div class="input-and-button-container">
+                                            <select name="participants" id="newParticipatingSnails"
+                                                class="snails-dropdown">
+                                            </select>
+                                            <input type="button" id="addSnailToNewRaceTableBtn" class="btn-teritary"
+                                                value="+">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"
+                                                viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.0"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-plus">
+                                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            </svg>
+                                            </input>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
                             </div>
+
                             <!-- Added Snails are being displayed in this Table (Max. 5)-->
                             <div class="input-display-box">
-                                <table>
-                                    <thead id="racesTHead">
-                                        <tr>
-                                            <td>Teilnehmer</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="racesTBody">
-                                        <tr>
-                                            <td>Neue Schnecke 1 (Test)</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Neue Schnecke 2 (Test)</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Neue Schnecke 3 (Test)</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <ul class="list header-list">
+                                    <li class="title-li">
+                                        Teilnehmende Schnecken
+                                    </li>
+                                </ul>
+                                <ul class="list" id="newParticipatingSnailsList">
+                                </ul>
+                                <p id="newParticipatingSnailsListPlaceholder" class="placeholderTable">
+                                    Du hast noch keine Schnecken zu deinem Rennen hinzugefügt. Klicke auf das + um
+                                    eine hinzuzufügen.
+                                </p>
                             </div>
                         </div>
+
+                        <input type="button" class="btn-blue" id="addUpdatedRaceSubmitBtn"
+                            value="Rennen aktualisieren +"></input>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
+    </div>
+    </div>
     <!-- JavaScript Links and Libaries -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./scripts/setup.js"></script>
 </body>

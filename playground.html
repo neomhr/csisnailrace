@@ -5,53 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing Area</title>
-    <link rel="stylesheet" href="./styles/playground.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="./scripts/playground.js"></script>
     <link rel="icon" href="./assets/SnailIcon.png">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        .active,
+        li:hover {
+            background-color: #777777;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Testing Area</h1>
-
+    <div class="localstorageTest">
+        <input type="text" id="storage">
+        <p id="text">Text</p>
+        <button id="button">Save</button>
+    </div>
     <div class="table-container">
-        <label for="snailName">Name</label><br>
-        <input type="text" name="item" id="snailName" />
-        <input type="button" value="+" onClick="displayAddedSnail()" class="small-btn-blue"><br>
+        <table class="table">
+            <thead id="thead">
+                <tr>
+                    <td>Schnecken</td>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <tr>
+                    <td>
+                        Entry 1
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-        <div class="table tableFixHead">
-            <table>
-                <thead id="table-head">
-                    <tr>
-                        <th>Meine Schnecken</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                </tbody>
-            </table>
-        </div>
+    <div class="list-item-test">
+        <ul id="u-list" class="list">
+            <li class="li active"
+                style="padding: 10px 25px; border-top: 1px solid #777777; border-bottom: 1px solid #777777; list-style-type: none;">
+                Value</li>
+            <li class="li" style="padding: 10px 25px; list-style-type: none;">Value</li>
+            <li class="li"
+                style="padding: 10px 25px; border-top: 1px solid #777777; border-bottom: 1px #777777; list-style-type: none;">
+                Value</li>
+        </ul>
+    </div>
 
-        <p id="feedback">
-            <span>You've selected:</span> <span id="select-result">none</span>.
-        </p>
+    <div class="container">
+        <select name="snails" id="select">
+            <option value="snail">
+                Item
+            </option>
+            <option value="snail">
+                Item2
+            </option>
+            <option value="snail">
+                Item3
+            </option>
+        </select>
 
-        <ol id="selectable">
-            <li class="ui-widget-content">Item 1</li>
-            <li class="ui-widget-content">Item 2</li>
-            <li class="ui-widget-content">Item 3</li>
-            <li class="ui-widget-content">Item 4</li>
-            <li class="ui-widget-content">Item 5</li>
-            <li class="ui-widget-content">Item 6</li>
-        </ol>
+        <input type="submit" value="add" id="input">
 
-        <div class="input-test" id="myInput">
-            <input type="text" name="name" id="name">
-            <input type="submit" value="OK" onclick="setKey()">
-        </div>
-        <script>
-        </script>
+        <ul id="list">
+
+        </ul>
+    </div>
+    <script src="./scripts/playground.js"></script>
 </body>
 
 </html>

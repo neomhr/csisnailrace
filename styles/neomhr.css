@@ -26,6 +26,7 @@ p {
     font-size: 17px;
     font-family: 'Inter', sans-serif;
     font-weight: 300;
+    line-height: 1.2;
     color: #848484;
     margin: 0px;
     padding: 0px;
@@ -43,7 +44,23 @@ label {
 
 table {
     font-family: 'Inter', sans-serif;
+    height: 260px;
+    table-layout: fixed;
+    border-collapse: collapse;
 }
+
+table tbody {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+}
+
+tr {
+    display: block;
+    cursor: pointer;
+}
+
 
 td {
     border-bottom: 1px solid #a1a1a1;
@@ -76,7 +93,7 @@ tbody td {
 
 .small-btn-dark:hover {
     background-color: #3d3d3d;
-    transform: translateY(-1px);
+    cursor: pointer;
 }
 
 .small-btn-blue {
@@ -92,12 +109,17 @@ tbody td {
 
 .small-btn-blue:hover {
     background-color: #0070f0;
-    transform: translateY(-1px);
+    cursor: pointer;
 }
 
 small-btn-blue:focus {
     outline: none;
     border: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
 }
 
 /* Sweet Alert Libary Styles */
@@ -140,3 +162,4 @@ small-btn-blue:focus {
     transform: translateY(-1px);
     background-color: #a1a1a1;
 }
+

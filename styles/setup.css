@@ -6,6 +6,13 @@ body {
     background-color: #FBFBFB;
     display: flex;
     justify-content: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+input:focus {
+    outline-color: rgba(75, 116, 253, 0.753);;
 }
 
 .wrapper {
@@ -26,11 +33,25 @@ body {
     border: none;
     border-radius: 5px;
     font-family: 'Inter', sans-serif;
-    font-size: 17px;
+    font-size: 15px;
+}
+
+.num-input {
+    width: 50px;
+    padding: 15px 15px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+}
+
+.num-input:focus {
+    outline-color:rgba(75, 116, 253, 0.753);
 }
 
 .text-input:focus {
-    outline: none;
+    outline-color: rgba(75, 116, 253, 0.753);
 }
 
 ::selection {
@@ -44,7 +65,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all ease 0.3s;
 }
 
 .content {
@@ -79,10 +99,7 @@ body {
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
 
-    -webkit-animation-name: fadeIn; 
-    -webkit-animation-duration: 0.4s;
-    animation-name: fadeIn;
-    animation-duration: 0.4s;
+    transition: all 0.3s ease;
 }
 
 .modal-header {
@@ -101,14 +118,20 @@ body {
     margin-left: 150px;
     margin-right: 150px;
     margin-bottom: 100px;
+    transition: all 0.3s ease;
 }
 
-.modal-body-add-race {
+
+
+.snail-name-container {
     display: flex;
+    flex-direction: column;
+    margin-right: 50px;
 }
 
-.modal-body-edit-race {
+.snail-speed-container {
     display: flex;
+    flex-direction: column;
 }
 
 .input-box-ar {
@@ -131,7 +154,16 @@ body {
     margin-bottom: 10px;
 }
 
+.label-new-name {
+    margin-bottom: 10px;
+}
+
+.label-new-participants {
+    margin-bottom: 10px;
+}
+
 .snails-dropdown {
+    -webkit-appearance: none;
     margin-bottom: 150px;
     padding: 15px 15px; 
     background-color: #f1f1f1;
@@ -142,6 +174,35 @@ body {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     width: 28vw;
+    height: 50px;
+    cursor: pointer;
+}
+
+.input-box-edit-race {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-race-name-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-new-snails-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-and-button-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.edit-race-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 300px;
 }
 
 .modal-content {
@@ -150,13 +211,15 @@ body {
     background-color: #fefefe;
     width: 100%;
     border-radius: 10px 10px 0px 0px;
-    -webkit-animation-name: slideIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: slideIn;
-    animation-duration: 0.4s;
 }
 
+.input-box {
+    display: flex;
+}
 
+.add-race-container {
+    display: flex;
+}
 
 .modal-subheading {
     margin-bottom: 20px;
@@ -169,6 +232,7 @@ body {
 
 .feather-x:hover {
     color: #666666;
+    cursor: pointer;
 }
 
 .modal-heading {
@@ -179,7 +243,23 @@ body {
     margin-bottom: 10px;
 }
 
+.label-speed {
+    margin-bottom: 10px;
+}
+
+.label-n-name {
+    margin-bottom: 10px;
+}
+
+.label-n-speed {
+    margin-bottom: 10px;
+}
+
 .snail-name-input {
+    margin-bottom: 30px;
+}
+
+.snail-speed-input {
     margin-bottom: 30px;
 }
 
@@ -225,16 +305,17 @@ body {
 
 .btn-blue:hover {
     background: rgb(75, 117, 253);
-    transform: translateX(2px);
+    cursor: pointer;
 }
 
-button:disabled {
+button:disabled, input:disabled {
     background-color: #dddd;
 }
 
-button:disabled:hover {
+button:disabled:hover, input:disabled {
     transform: translateY(0);
     background-color: #dddd;
+    cursor: default;
 }
 
 #addSnailSubmitBtn span {
@@ -252,11 +333,47 @@ button:disabled:hover {
     background-color: #1b1b1b;
     color: #fff;
     border-radius: 4px;
-    padding: 15px 15px;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    font-family: 'Inter';
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-teritary:hover {
+    opacity: .9;
 }
 
 
 
+tr:hover, .active {
+    background-color: #e6e6e6;
+
+}
+
+li {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    list-style-type: none;
+    padding-top: 5px;
+    padding-bottom: 5px;    
+    margin-bottom: 10px;
+}
+
+.listItem {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.placeholderTable {
+    line-height: 1.8;
+}
+
+.addSnailsToRaceContainer {
+    display: flex;
+}
 
 @media only screen and (max-width: 1000px) {
     .header-bar {
@@ -277,24 +394,33 @@ button:disabled:hover {
     }
 }
 
-@-webkit-keyframes slideIn {
-    from {bottom: -300px; opacity: 0;}
-    to {bottom: 0; opacity: 1;}
+.fader {
+    -moz-transition: 0.4s linear;
+    -webkit-transition: 0.4s linear;
+    transition: 0.4s linear;
 }
 
-@keyframes slideIn {
-    from {bottom: -300px; opacity: 0;}
-    to {bottom: 0; opacity: 1;}
+.fader .fadedOut {
+    opacity: 0;
 }
 
-@-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+.tr-selected {
+    background-color: #1b1b1b;
 }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+.fadeIn {
+    animation: modalFadeIn;
+    -webkit-animation: modalFadeIn;
+    -moz-animation: modalFadeIn;
 }
 
-
+@keyframes modalFadeIn {
+    0% {
+        opacity: 0;
+        bottom: -300px;
+    }
+    100% {
+        opacity: 1;
+        bottom: 0;
+    }
+}
