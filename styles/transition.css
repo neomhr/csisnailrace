@@ -1,8 +1,8 @@
-/* .transition-fade {
-    opacity: 1;
+.transition-fadeIn {
     transition: 1s;
+    opacity: 1;
 }
-
-html.is-animating .transition-fade {
+  
+html.is-animating .transition-fadeIn {
     opacity: 0;
-} */
+}

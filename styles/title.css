@@ -1,129 +1,143 @@
 body {
+    width: 100%;
     height: 100vh;
-    width: 100vw;
-    margin: 0px;
+    margin: 0;
     padding: 0px;
     border: none;
     font-family: 'Inter', sans-serif;
-    overflow-y: hidden;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 ::selection {
     background-color: #c4c4c4;
 }
 
-.overlay {
-    width: 100%;
-    height: 85%;
+.btn-primary {
+    appearance: none;
+    color: #fff;
+    background-color: #0070E3;
+    padding: 13px 36px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #0178ee;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    appearance: none;
+    color: #fff;
+    background-color: #1A1A1A;
+    padding: 13px 36px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    text-decoration: none   ;
+}
+
+.btn-secondary:hover {
+    background-color: #252525;
+    cursor: pointer;
+}
+
+.content {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.literals {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-h1 {
-    font-size: 40px;
-    text-align: center;
-    margin: 0px;
-}
-
-h3 {
-    font-size: 20px;
-    font-weight: 400;
-}
-
-h3 .footer-section-strong {
-    font-weight: 600;
-    text-decoration: none;
-    color: #1b1b1b;
-}
-
-h3 .footer-section-strong:hover {
-    color: #474747;
-    transition: ease all 0.3s;
-}
-
-.floating-literal-r, .floating-literal-a, .floating-literal-c, .floating-literal-e {
-    font-size: 200px;
-    color: #65D36E;
+span.floating-literal {
+    font-size: 180px;
     font-weight: 800;
-    font-family: 'Proxima Nova', sans-serif;
+    color: #65c971;
+    z-index: 1;
+    transform: translateY(-3px);
+    transition: all 0.5s ease-in;
+    animation: fadeIn both infinite 2s;
 }
 
-.floating-literal-r {
-    position: relative;
-    top: 0%;
+span.floating-literal:nth-child(2) {
+    font-size: 180px;
+    font-weight: 800;
+    color: #65c971;
+    z-index: 1;
+    transform: translateY(-3px);
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn both infinite 2s;
+    animation-delay: .2s;
 }
 
-.floating-literal-a {
-    position: relative;
-    top: 50%;
+span.floating-literal:nth-child(3) {
+    font-size: 180px;
+    font-weight: 800;
+    color: #65c971;
+    z-index: 1;
+    transform: translateY(-3px);
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn both infinite 2s;
+    animation-delay: .4s;
 }
 
-.button-section {
-    display: flex;
-    justify-content: center;
+span.floating-literal:nth-child(4) {
+    font-size: 180px;
+    font-weight: 800;
+    color: #65c971;
+    z-index: 1;
+    transform: translateY(-3px);
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn both infinite 2s;
+    animation-delay: .6s;
 }
 
-.button-dark {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
-    padding: 17px 40px;
-    border: none;
-    background: #242424;
-    font-size: 17px;
-    cursor: pointer;
-    border-radius: 4px;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    transition: all ease 0.3s;
+@keyframes fadeIn {
+    0% {
+        transform: translateY(-3px);
+    }
+    50% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(-3px);
+    }
 }
 
-.button-dark:hover {
-    background:#000;
-    transform: translateY(-2px);
+/* Button Container */
+
+.btn-secondary {
+    margin-right: 20px;
 }
 
-.button-blue {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
-    padding: 17px 40px;
-    border: none;
-    background: rgb(54, 100, 248);
-    font-size: 17px;
-    cursor: pointer;
-    border-radius: 4px;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    transition: all ease 0.3s;
+.buttons {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.button-blue:hover {
-    background: rgb(34, 84, 250);
-    transform: translateY(-2px);
-}
+/* Footnote */
 
-.button-dark, .button-blue {
-    margin: 10px;
-}
-
-.button-dark:focus, .button-blue:focus {
-    outline: none;
-}
-
-.button-blue button {
-    margin-right: 100px;
-}
-
-.footer-section {
-    display: flex;
-    justify-content: center;
-}
-
-.button-section a {
+.link-btn {
     text-decoration: none;
+    color: #000;
 }
 
+footer {
+    margin-top: 30px;
+}

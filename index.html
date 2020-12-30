@@ -4,141 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/transition.css">
-    <title>Schneckenrennen | Rennbildschrim</title>
+    <title>Schneckenrennen | Willkommen</title>
     <link rel="icon" href="./assets/SnailIcon.png">
+    <link rel="stylesheet" href="./styles/title.css">
+    <link rel="stylesheet" href="./styles/transition.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script defer src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
-    <script defer src="./scripts/transition.js" defer></script>
+    <script>
+        // let check = prompt('Bitte identifizieren', '');
+        // if (check != 'csiAdmin') {
+        //     alert('Zugriff abgelehnt');
+        //     window.location.reload();
+        // } else {
+        //     alert('Zugriff gestattet')
+        // }
+    </script>
 </head>
 
 <body id="swup" class="transition-fade">
-    <div class="grid-wrapper">
-        <div class="header">
-            <!-- <div class="go-back-container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-arrow-left">
-                    <line x1="19" y1="12" x2="5" y2="12"></line>
-                    <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
-                <span class="go-back-text" style="display: none;">
-                    Zurück
-                </span>
-            </div> -->
+    <main class="content">
+        <header>
+            <h1>Snail</h1>
+        </header>
+        <div class="literals">
 
-            <div class="title-container">
-                <h1 class="title">Rennbildschirm</h1>
-            </div>
+            <span class="floating-literal">R</span>
+            <span class="floating-literal">A</span>
+            <span class="floating-literal">C</span>
+            <span class="floating-literal">E</span>
 
         </div>
-        <div class="race-track">
-            <div class="headline">
-                <div class="snail-display-title-container">
-                    <h3 class="snail-display-title">Schnecke</h3>
-                </div>
-                <div class="race-name-display-container">
-                    <h3 class="race-name-title" id="raceName">Name des Rennens</h3>
-                </div>
-                <div class="ranking-display-title-container">
-                    <h3 class="ranking-display-title">Platz</h3>
-                </div>
-            </div>
-            <div class="snails">
-                <div class="snail-one-container">
-                    <span class="track-num one">1</span>
-                    <span class="snail-name-one s-name" id="snailOne">nicht belegt</span>
-                </div>
-                <div class="snail-two-container">
-                    <span class="track-num two">2</span>
-                    <span class="snail-name-two s-name" id="snailTwo">nicht belegt</span>
-                </div>
-                <div class="snail-three-container" id="containerTrackThree">
-                    <span class="track-num three" id="trackNumThree">3</span>
-                    <span class="snail-name-three s-name" id="snailThree">nicht belegt</span>
-                </div>
-            </div>
-            <div class="track">
-                <div class="track-one-container occupied">
-                    <input type="range" name="track-one" id="raceTrackOne" class="track-one-slider" value="0" min="0"
-                        step="1" max="5000">
-                    <span class="goal-mark">Ziel</span>
-
-                </div>
-                <div class="track-two-container occupied">
-                    <input type="range" name="track-two" id="raceTrackTwo" class="track-two-slider" value="0" min="0"
-                        step="1" max="5000">
-                    <span class="goal-mark">Ziel</span>
-                </div>
-                <div class="track-three-container occupied">
-                    <input type="range" name="track-three" id="raceTrackThree" class="track-three-slider" value="0"
-                        step="1" min="0" max="5000">
-                    <span class="goal-mark" id="gM-3">Ziel</span>
-                </div>
-            </div>
-            <div class="ranking">
-                <div class="ranking-track-one">
-                    <span class="ranking-text" id="rankingOne">1</span>
-                </div>
-                <div class="ranking-track-two">
-                    <span class="ranking-text" id="rankingTwo">2</span>
-                </div>
-                <div class="ranking-track-three">
-                    <span class="ranking-text" id="rankingThree">3</span>
-                </div>
-            </div>
+        <div class="buttons">
+            <a target="_blank" href="https://github.com/neomhr/csisnailrace" class="btn-secondary">Code anschauen</a>
+            <a href="/setup.html" class="btn-primary">Spielen!</a>
         </div>
-        <div class="buttons-container-grid-wrapper">
-            <div class="buttons-container">
-                <div class="button-bettingOffice-container">
-                    <button class="btn-secondary btn" id="openBettingOfficeBtn">
-                        Wettbüro
-                    </button>
-                </div>
-                <div class="button-startRace-container">
-                    <buttton class="btn-primary btn" id="startRaceBtn">
-                        Rennen starten!
-                    </buttton>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Outside Grid Wrapper-->
-
-    <div class="modal" id="bettingOfficeModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-heading">Wettbüro</h3>
-                <svg id="closeBettingOfficeModal" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" class="feather feather-x">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </div>
-            <div class="modal-body">
-                <p class="modal-subheading">Hier kannst du eine Wette auf eine Schnecke setzen.</p>
-                <div class="input-box">
-                    <div class="select-snail">
-                        <label class="label label-snail">Schnecke</label>
-                        <select name="snail" id="snailsDropdown" class="snails-dropdown"></select>
-                    </div>
-                    <div class="choose-bet-amount">
-                        <label class="label label-amount">Wettbetrag</label>
-                        <input type="number" name="bet-amount" min="1" max="1000" id="betAmount"
-                            class="num-input bet-amount-input" placeholder="1€">
-                    </div>
-                </div>
-                <div class="button-container">
-                    <button class="btn-primary" id="submitBetBtn">Wetten</button>
-                </div>
-            </div>
-        </div>
-    </div>
+        <footer>
+            <a href="https://neomohr.com" class="link-btn">Testprojekt von Neo Mohr</a>
+        </footer>
+    </main>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./scripts/audio.js"></script>
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+    <script>
+        const swup = new Swup(); // only this line when included with script tag
+    </script>
 </body>
-<script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
-<script type="module" src="./scripts/race.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </html>

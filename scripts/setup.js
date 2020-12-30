@@ -700,7 +700,7 @@ continueBtn.addEventListener('click', () => {
             let raceNameValue = raceRows[i].firstChild.innerHTML;
             let raceKey = 'race_' + raceNameValue; // Table Row InnerText with Prefix == Key
 
-            window.location.href = `/index.html?race=${raceKey}`; // Append Key to URL
+            window.location.href = `/race.html?race=${raceKey}`; // Append Key to URL
 
         }
     }
