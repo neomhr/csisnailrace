@@ -1,7 +1,10 @@
 # CSI Snailrace
 Test Project by Neo Mohr using OOP JavaScript.
 ### Project Description
-A Snail Race Simulation based on HTML, CSS and JavaScript using technologies like the Web Storage API. Racing Snails can be created and managed. In addition, races can be created and managed in which the snails can also participate.
+A Snail Race Simulation based on HTML, CSS and JavaScript using technologies like the Web Storage API.
+_The main objective of this project was to get an Introduction on working with Objects and Databases in JavaScript_
+
+Racing Snails can be created and managed. In addition, races can be created and managed in which the snails can also participate.
 For every race, a bet can be made that will be paid out if the snail wins.
 
 ## Functionality
