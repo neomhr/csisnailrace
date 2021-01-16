@@ -1,5 +1,5 @@
 .transition-fadeIn {
-    transition: 1s;
+    transition: .4s;
     opacity: 1;
 }
   

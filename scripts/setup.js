@@ -1,5 +1,4 @@
-// Schneckenrennen – Projekt von Neo Mohr, © 2020 All rights reserved
-// ヽ(＾Д＾)ﾉ
+// Schneckenrennen
 
 // Open and close Modals
 const addSnailModal = document.getElementById('addSnailModal');
@@ -19,12 +18,10 @@ closeAddSnailModal.addEventListener('click', () => {
 
 });
 
-addSnailModal.addEventListener('click', (event) => {
-
-    if (event.target != addSnailModalContent) {
-        addSnailModal.style.display = 'none'
+window.addEventListener('click', (event) => {
+    if (event.target == addSnailModal) {
+        addSnailModal.style.display = "none";
     }
-
 });
 
 const editSnailModal = document.getElementById('editSnailModal');
@@ -41,6 +38,12 @@ closeEditSnailModal.addEventListener('click', () => {
 
     editSnailModal.style.display = 'none';
 
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target == editSnailModal) {
+        editSnailModal.style.display = "none";
+    }
 });
 
 const addRaceModal = document.getElementById('addRaceModal');
@@ -60,6 +63,12 @@ closeAddRaceModal.addEventListener('click', () => {
 
 });
 
+window.addEventListener('click', (event) => {
+    if (event.target == addRaceModal) {
+        addRaceModal.style.display = "none";
+    }
+});
+
 const editRaceModal = document.getElementById('editRaceModal');
 const openEditRaceModalBtn = document.getElementById('openEditRaceModalBtn');
 const closeEditRaceModal = document.getElementById('closeEditRaceModal');
@@ -75,7 +84,12 @@ closeEditRaceModal.addEventListener('click', () => {
     editRaceModal.style.display = 'none';
     window.location.reload();
 
+});
 
+window.addEventListener('click', (event) => {
+    if (event.target == editRaceModal) {
+        editRaceModal.style.display = "none";
+    }
 });
 
 // Creates the table rows and populates values from localStorage (for the snails)
@@ -268,7 +282,7 @@ if (storageAvailable('localStorage')) {
 
         } else if (snailSpeed > 10 || snailSpeed < 1) {
 
-            swal('Syntax Error', 'Die Geschiwndigkeit muss einer positiven Zahl zwischen 1 und 10 entsprechen.', 'error');
+            swal('Syntax Error', 'Die Geschwindigkeit muss einer positiven Zahl zwischen 1 und 10 entsprechen.', 'error');
 
         }
         else {
@@ -333,14 +347,33 @@ if (storageAvailable('localStorage')) {
             if (snailRows[i].classList.contains('active')) {
 
                 let snailValue = snailRows[i].firstChild.innerHTML; // <td>/value of active row
-                console.log(snailValue)
 
                 localStorage.removeItem('snail_' + snailValue); // Remove Current Snail
 
                 let newSnail = new Snail(nameVal, speedVal);
                 let newSnailStr = JSON.stringify(newSnail);
-                localStorage.setItem('snail_' + nameVal, newSnailStr);
+                let lsKeys = Object.keys(localStorage);
+                let raceKeys = lsKeys.filter((key) => { return key.includes('race_'); });
 
+                for (let i = 0; i < raceKeys.length; i++) {
+                    let raceKey = raceKeys[i];
+                    let raceObject = JSON.parse(localStorage.getItem(raceKey));
+                    let raceParticipantsArray = raceObject.participants;
+
+                    for (let i = 0; i < raceParticipantsArray.length; i++) {
+                        let raceParticipant = raceParticipantsArray[i];
+                        if (raceParticipant == 'snail_' + snailValue) {
+                            let indexOfSnail = raceParticipantsArray.indexOf(raceParticipant);
+                            raceObject.participants[indexOfSnail] = 'snail_' + nameVal;
+                            console.log('race_' + raceObject.name, JSON.stringify(raceObject))
+                            localStorage.removeItem('race_' + raceObject.name);
+                            localStorage.setItem('race_' + raceObject.name, JSON.stringify(raceObject))
+                        }
+                    }
+
+                }
+
+                localStorage.setItem('snail_' + nameVal, newSnailStr);
 
             }
 
@@ -420,7 +453,9 @@ if (storageAvailable('localStorage')) {
 
     const addSnailToRaceBtn = document.getElementById('addSnailToRacetableBtn');
     let raceParticipants = [];
+
     addSnailToRaceBtn.addEventListener('click', () => {
+
 
         const select = document.getElementById('participatingSnails');
         const list = document.getElementById('participatingSnailsList');
@@ -430,13 +465,13 @@ if (storageAvailable('localStorage')) {
         let snailKeys = Object.keys(localStorage).filter((key) => { return key.includes('snail_') });
         console.log(snailKeys)
 
-
         // Build Snails List
         if (list.childElementCount <= 2) { // Max of 3 li's (Race Participants)
 
-            let newListEntry = document.createElement('li');
+            var newListEntry = document.createElement('li');
             list.appendChild(newListEntry);
             newListEntry.innerHTML = selectedValue;
+            newListEntry.classList.add('addRaceLi');
 
             for (let i = 0; i < snailKeys.length; i++) {
                 if (snailKeys[i] == 'snail_' + selectedValue) {
@@ -463,8 +498,15 @@ if (storageAvailable('localStorage')) {
         const raceValue = document.getElementById('raceName')
         const valueRace = raceValue.value;
 
+        if (valueRace.length == 0) {
 
-        if (valueRace) {
+            swal('Ups!', 'Bitte gib deinem Rennen einen Namen um fortzufahren', 'error');
+
+        } else if (raceParticipants.length == 0 || raceParticipants.length == 1) {
+
+            swal('Ups!', 'Du musst mindestens 2 Schnecken hinzufügen.', 'error');
+
+        } else {
 
             let newRace = new Race(valueRace, raceParticipants, raceParticipants.length);
             console.log(newRace)
@@ -473,11 +515,6 @@ if (storageAvailable('localStorage')) {
             localStorage.setItem('race_' + newRace.name, newRaceString);
 
             window.location.reload();
-
-        } else {
-
-            swal('Ups!', 'Bitte gib deinem Rennen einen Namen um fortzufahren', 'error');
-
         }
 
     });
@@ -534,22 +571,20 @@ if (storageAvailable('localStorage')) {
 
                         newNameInp.value = raceObject.name; // Set Input value to == Race Name Property
 
-                        let participants = raceObject.participants; // Get Participants from Race Object
+                        var participants = raceObject.participants; // Get Participants from Race Object
                         console.log(participants)
 
-                        // Iterate through Participants
+                        // loop through Participants
                         for (let i = 0; i < participants.length; i++) {
-                            let snailString = localStorage.getItem(participants[i])
-                            console.log(snailString)
-                            let snailObj = JSON.parse(snailString);
-                            console.log(snailObj)
-                            let snailName = snailObj.name;
+                            console.log(participants[i])
+                            let snailObj = JSON.parse(localStorage.getItem(participants[i]));
+                            let snailName = snailObj.name
 
                             if (list.childElementCount <= 2) {
                                 let newLi = document.createElement('li');
                                 list.appendChild(newLi);
                                 newLi.innerText = snailName;
-
+                                newLi.classList.add('editRaceLi');
                             }
                         }
 
@@ -605,6 +640,8 @@ if (storageAvailable('localStorage')) {
 
                 // Create New/Updated Race
                 let newRaceName = document.getElementById('newRaceName').value; // New Race Name
+                let newRaceNameInput = document.getElementById('newRaceName');
+                let newRaceNameInputVal = newRaceNameInput.value;
                 let newRaceParticipants = [];
 
                 let newRaceParticipatingSnailsList = document.getElementById('newParticipatingSnailsList');
@@ -627,6 +664,23 @@ if (storageAvailable('localStorage')) {
                 }
 
                 console.log(newRaceParticipants)
+
+                if (newRaceNameInputVal.length == 0) {
+
+                    swal('Ups!', 'Bitte gib deinem Rennen einen Namen um fortzufahren', 'error');
+
+                } else if (newRaceParticipants.length == 0 | newRaceParticipants.length == 1) {
+
+                    swal('Ups!', 'Du musst mindestens 2 Schnecken hinzufügen.', 'error');
+
+                } else {
+                    // Create New Race Object
+                    let newRace = new Race(newRaceName, newRaceParticipants, newRaceParticipants.length);
+                    // Store new Race in Localstorage
+                    localStorage.setItem('race_' + newRaceName, JSON.stringify(newRace));
+
+                    newRaceParticipants.length = 0; // Clear Participants Array
+                }
 
                 // Create New Race Object
                 let newRace = new Race(newRaceName, newRaceParticipants, newRaceParticipants.length);

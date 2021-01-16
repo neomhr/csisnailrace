@@ -13,7 +13,7 @@
     <script defer src="./scripts/transition.js" defer></script>
 </head>
 
-<body id="swup" class="transition-fade">
+<body>
     <div class="grid-wrapper">
         <div class="header">
             <!-- <div class="go-back-container">
@@ -29,7 +29,7 @@
             </div> -->
 
             <div class="title-container">
-                <h1 class="title">Rennbildschirm</h1>
+                <h1 class="title">Rennen</h1>
             </div>
 
         </div>
@@ -54,7 +54,7 @@
                     <span class="track-num two">2</span>
                     <span class="snail-name-two s-name" id="snailTwo">nicht belegt</span>
                 </div>
-                <div class="snail-three-container" id="containerTrackThree">
+                <div class="snail-three-container">
                     <span class="track-num three" id="trackNumThree">3</span>
                     <span class="snail-name-three s-name" id="snailThree">nicht belegt</span>
                 </div>
@@ -62,18 +62,18 @@
             <div class="track">
                 <div class="track-one-container occupied">
                     <input type="range" name="track-one" id="raceTrackOne" class="track-one-slider" value="0" min="0"
-                        step="1" max="5000">
+                        step="1" max="5000" disabled>
                     <span class="goal-mark">Ziel</span>
 
                 </div>
                 <div class="track-two-container occupied">
                     <input type="range" name="track-two" id="raceTrackTwo" class="track-two-slider" value="0" min="0"
-                        step="1" max="5000">
+                        step="1" max="5000" disabled>
                     <span class="goal-mark">Ziel</span>
                 </div>
                 <div class="track-three-container occupied">
                     <input type="range" name="track-three" id="raceTrackThree" class="track-three-slider" value="0"
-                        step="1" min="0" max="5000">
+                        step="1" min="0" max="5000" disabled>
                     <span class="goal-mark" id="gM-3">Ziel</span>
                 </div>
             </div>
@@ -121,14 +121,26 @@
                 <p class="modal-subheading">Hier kannst du eine Wette auf eine Schnecke setzen.</p>
                 <div class="input-box">
                     <div class="select-snail">
-                        <label class="label label-snail">Schnecke</label>
+                        <label class="label label-snail">Auf Schnecke</label>
                         <select name="snail" id="snailsDropdown" class="snails-dropdown"></select>
                     </div>
                     <div class="choose-bet-amount">
                         <label class="label label-amount">Wettbetrag</label>
-                        <input type="number" name="bet-amount" min="1" max="1000" id="betAmount"
-                            class="num-input bet-amount-input" placeholder="1€">
+                        <div class="bet-amount-flex-container">
+                            <input type="number" name="bet-amount" min="1" max="1000" id="betAmount"
+                                class="num-input bet-amount-input" placeholder="1">
+                            <div class="euro-symbol-container">
+                                <span class="euro-display-span">
+                                    €
+                                </span>
+                            </div>
+                        </div>
+
                     </div>
+
+                </div>
+                <div class="possible-win-display">
+                    <p>Dein höchstmöglicher Gewinn liegt somit bei <span id="possibleWinDisplay">0</span>€</p>
                 </div>
                 <div class="button-container">
                     <button class="btn-primary" id="submitBetBtn">Wetten</button>

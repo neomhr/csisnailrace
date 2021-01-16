@@ -90,6 +90,7 @@ h1 {
 }
 
 /* Headline */
+
 .headline {
     grid-area: Headline;
     padding-top: 12px;
@@ -172,6 +173,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 /* Race Track */
@@ -270,6 +272,7 @@ input[type=range]::-moz-range-thumb {
 
 .disabled {
     pointer-events: none;
+    cursor: not-allowed;
     background-color: #a1a1a1;
     color: #f1f1f1;
 }
@@ -322,6 +325,10 @@ input[type=range]::-moz-range-thumb {
     overflow: auto; 
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
 }
 
 .modal-content {
@@ -330,6 +337,10 @@ input[type=range]::-moz-range-thumb {
     background-color: #fefefe;
     width: 100%;
     border-radius: 10px 10px 0px 0px;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
 }
 
 .modal-header {
@@ -386,7 +397,26 @@ input[type=range]::-moz-range-thumb {
 .choose-bet-amount {
     display: flex;
     flex-direction: column;
-    margin-right: 50px;
+}
+
+.euro-symbol-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.euro-symbol-container span {
+    color: #1b1b1b;
+}
+
+.possible-win-display {
+    margin-bottom: 30px;
+}
+
+.bet-amount-flex-container {
+    display: flex;
+    flex-direction: row;
 }
 
 input[type="number"] {
@@ -405,7 +435,7 @@ select {
     background-color: #f1f1f1;
     border: none;
     border-radius: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     margin-right: 10px;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
@@ -423,6 +453,18 @@ select {
     margin: 0px;
     padding: 0px;
     margin-bottom: 10px;
+}
+
+/* Bet Marker */
+
+.bet-marker {
+    font-size: 12px;
+    color: #fff;
+    padding: 3px 7px;
+    border-radius: 5px;
+    background-color: red;
+    position: absolute;
+    bottom: -40%;
 }
 
 
@@ -467,5 +509,25 @@ select {
     background-color: #a1a1a1;
 }
 
+/* Animations */
 
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0} 
+    to {bottom: 0; opacity: 1}
+  }
+  
+  @keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
 

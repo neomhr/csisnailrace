@@ -1,7 +1,3 @@
-/* neomhr.css - a carefully crafted, continuously updated css libary for easy styling by @neomhr.
-originally used for an application project.  */
-
-
 /* Headings, Subheadings and Paragraphs */
 
 h1 {
@@ -142,11 +138,6 @@ ul {
     background-color: #68A1EF;
     transition: all ease 0.3s;
 }
-
-.swal-button--confirm:hover {
-    transform: translateY(-1px);
-}
-
 .swal-button--cancel {
     appearance: none;
     border: none;
@@ -157,9 +148,3 @@ ul {
     font-weight: 300;
     transition: all ease 0.3s;
 }
-
-.swal-button--cancel:hover {
-    transform: translateY(-1px);
-    background-color: #a1a1a1;
-}
-

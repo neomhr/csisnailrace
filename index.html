@@ -10,36 +10,46 @@
     <link rel="stylesheet" href="./styles/transition.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
-        // let check = prompt('Bitte identifizieren', '');
-        // if (check != 'csiAdmin') {
-        //     alert('Zugriff abgelehnt');
-        //     window.location.reload();
-        // } else {
-        //     alert('Zugriff gestattet')
-        // }
+        let check = prompt('Passwort eingeben', '');
+        if (check != 'csiAdmin') {
+            alert('Zugriff abgelehnt');
+            window.location.reload();
+        } else {
+            alert('Zugriff gestattet')
+        }
     </script>
 </head>
 
 <body id="swup" class="transition-fade">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="svgWave">
+        <path fill="#95D09C" fill-opacity="0.5"
+            d="M0,160L30,176C60,192,120,224,180,229.3C240,235,300,213,360,181.3C420,149,480,107,540,80C600,53,660,43,720,64C780,85,840,139,900,181.3C960,224,1020,256,1080,272C1140,288,1200,288,1260,256C1320,224,1380,160,1410,128L1440,96L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+        </path>
+    </svg>
     <main class="content">
-        <header>
-            <h1>Snail</h1>
-        </header>
-        <div class="literals">
+        <div class="container gradient-border">
 
-            <span class="floating-literal">R</span>
-            <span class="floating-literal">A</span>
-            <span class="floating-literal">C</span>
-            <span class="floating-literal">E</span>
 
+            <header>
+                <h1>Snail</h1>
+            </header>
+            <div class="literals">
+
+                <span class="floating-literal">R</span>
+                <span class="floating-literal">A</span>
+                <span class="floating-literal">C</span>
+                <span class="floating-literal">E</span>
+
+            </div>
+            <div class="buttons">
+                <a target="_blank" href="https://github.com/neomhr/csisnailrace" class="btn-secondary">Code
+                    anschauen</a>
+                <a href="/setup.html" class="btn-primary">Spielen!</a>
+            </div>
+            <footer>
+                <a href="https://neomohr.com" class="link-btn">Testprojekt von Neo Mohr</a>
+            </footer>
         </div>
-        <div class="buttons">
-            <a target="_blank" href="https://github.com/neomhr/csisnailrace" class="btn-secondary">Code anschauen</a>
-            <a href="/setup.html" class="btn-primary">Spielen!</a>
-        </div>
-        <footer>
-            <a href="https://neomohr.com" class="link-btn">Testprojekt von Neo Mohr</a>
-        </footer>
     </main>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./scripts/audio.js"></script>
@@ -47,6 +57,7 @@
     <script>
         const swup = new Swup(); // only this line when included with script tag
     </script>
+
 </body>
 
 </html>

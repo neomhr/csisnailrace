@@ -8,11 +8,15 @@ body {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-top: 13vh;
 }
 
 ::selection {
     background-color: #c4c4c4;
+}
+
+h1 {
+    margin: 0;
 }
 
 .btn-primary {
@@ -51,11 +55,13 @@ body {
     cursor: pointer;
 }
 
-.content {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+    background-color: #fff;
+    padding: 70px;
 }
 
 .literals {
@@ -141,3 +147,44 @@ span.floating-literal:nth-child(4) {
 footer {
     margin-top: 30px;
 }
+
+/* BG wave */
+
+.svgWave {
+    position: absolute;
+    bottom: 0%;
+    z-index: -1;
+}
+
+.gradient-border {
+    --borderWidth: 7px;
+    background: #fff;
+    position: relative;
+    border-radius: var(--borderWidth);
+  }
+  .gradient-border:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #ABEBC6, #82E0AA, #58D68D, #AED6F1, #2ECC71, #85C1E9, #85C1E9, #58D68D,#3498DB);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 10s ease infinite;
+    background-size: 300% 300%;
+  }
+  
+  
+  @keyframes animatedgradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }

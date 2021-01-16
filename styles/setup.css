@@ -2,7 +2,7 @@ body {
     margin: 0px;
     padding: 0px;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background-color: #FBFBFB;
     display: flex;
     justify-content: center;
@@ -88,23 +88,25 @@ input:focus {
 }
 
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-
-    transition: all 0.3s ease;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
 }
 
 .modal-header {
     margin-left: 150px;
-    margin-right: 150px;
+    margin-right: 120px;
     margin-top: 40px;
     border-radius: 10px 10px 0px 0px;
     background-color: #fff;
@@ -116,9 +118,8 @@ input:focus {
 
 .modal-body {
     margin-left: 150px;
-    margin-right: 150px;
+    margin-right: 120px;
     margin-bottom: 100px;
-    transition: all 0.3s ease;
 }
 
 .snail-name-container {
@@ -209,6 +210,10 @@ input:focus {
     background-color: #fefefe;
     width: 100%;
     border-radius: 10px 10px 0px 0px;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
 }
 
 .input-box {
@@ -343,6 +348,9 @@ button:disabled:hover, input:disabled {
     opacity: .9;
 }
 
+tr {
+    transition: all 0.2s ease;
+}
 
 
 tr:hover, .active {
@@ -383,6 +391,11 @@ li {
         column-gap: 20px;
     }
 
+    .modal, .modal-header {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
     .add-snail-btn, .delete-snail-btn {
         margin-right: 20px;
     }
@@ -392,33 +405,62 @@ li {
     }
 }
 
-.fader {
-    -moz-transition: 0.4s linear;
-    -webkit-transition: 0.4s linear;
-    transition: 0.4s linear;
+/* Modal Fade/SlideIn Animations */
+
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0} 
+    to {bottom: 0; opacity: 1}
+  }
+  
+  @keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+
+/* Modal Fadeout Slideout Animations */
+/* Added as classes */
+
+@-webkit-keyframes slideOut {
+    from {bottom: 0; opacity: 1}
+    to {bottom: -300px; opacity: 0}
+  }
+  
+  @keyframes slideOut {
+    from {bottom: 0; opacity: 1}
+    to {bottom: -300px; opacity: 0}
+  }
+  
+  @-webkit-keyframes fadeOut {
+    from {opacity: 1} 
+    to {opacity: 0}
+  }
+  
+  @keyframes fadeOut {
+    from {opacity: 1} 
+    to {opacity: 0}
+  }
+
+.modalAnimOut {
+    -webkit-animation-name: fadeOut;
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeOut;
+    animation-duration: 0.4s;
 }
 
-.fader .fadedOut {
-    opacity: 0;
+.modalContentAnimOut {
+    -webkit-animation-name: slideOut;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideOut;
+    animation-duration: 0.4s;
 }
 
-.tr-selected {
-    background-color: #1b1b1b;
-}
-
-.fadeIn {
-    animation: modalFadeIn;
-    -webkit-animation: modalFadeIn;
-    -moz-animation: modalFadeIn;
-}
-
-@keyframes modalFadeIn {
-    0% {
-        opacity: 0;
-        bottom: -300px;
-    }
-    100% {
-        opacity: 1;
-        bottom: 0;
-    }
-}

@@ -89,9 +89,9 @@ startRaceBtn.addEventListener('click', () => {
 
         var raceInterval = setInterval(() => {
 
-            let snailOneStep = Math.floor(Math.random() * snailOneSpeed + 1); // Random Integer Value between 0 and Max Speed of the Snail
+            let snailOneStep = Math.floor(Math.random() * snailOneSpeed); // Random Integer Value between 0 and Max Speed of the Snail
 
-            let snailTwoStep = Math.floor(Math.random() * snailTwoSpeed + 1); // Random Integer Value between 0 and Max Speed of the Snail
+            let snailTwoStep = Math.floor(Math.random() * snailTwoSpeed); // Random Integer Value between 0 and Max Speed of the Snail
 
             if (snails.length == 3) {
 
@@ -123,6 +123,7 @@ startRaceBtn.addEventListener('click', () => {
 
                     confetti.stop();
                     clearInterval();
+
                 }, 500)
 
                 swal(snailOneName + " hat das Rennen gewonnen", 'Die Schnecke hat das Rennen soeben für sich entschieden!', 'success', {
@@ -140,7 +141,27 @@ startRaceBtn.addEventListener('click', () => {
                                 break;
 
                         }
+
+                        let bet = JSON.parse(localStorage.getItem('currentBet'));
+                        if (bet.snail == 'snail_' + snailOneName) {
+                            swal('Gewinn! 🤑', 'Du hast richtig gewettet und soeben ' + bet.possibleWin + '€ gewonnen!', 'success', {
+                                buttons: {
+                                    Okay: true
+                                },
+                            })
+
+                                .then((value) => {
+                                    switch (value) {
+                                        case "Okay":
+                                            localStorage.removeItem('currentBet');
+                                            let removeBetMarker = document.getElementById('betMarker');
+                                            removeBetMarker.remove();
+                                            break;
+                                    }
+                                })
+                        }
                     });
+
 
             } else if (trackTwo.value == 5000) {
 
@@ -168,10 +189,31 @@ startRaceBtn.addEventListener('click', () => {
                                 trackOne.value = 0;
                                 trackTwo.value = 0;
                                 trackThree.value = 0;
+                                let removeBetMarker = document.getElementById('betMarker');
+                                removeBetMarker.remove();
                                 break;
 
                         }
+
+                        let bet = JSON.parse(localStorage.getItem('currentBet'));
+                        if (bet.snail == 'snail_' + snailTwoName) {
+                            swal('Gewinn! 🤑', 'Du hast richtig gewettet und soeben ' + bet.possibleWin + '€ gewonnen!', 'success', {
+                                buttons: {
+                                    Okay: true
+                                },
+                            })
+
+                                .then((value) => {
+                                    switch (value) {
+                                        case "Okay":
+                                            localStorage.removeItem('currentBet');
+                                            break;
+                                    }
+                                })
+                        }
                     });
+
+
 
             } else if (trackThree.value == 5000) {
 
@@ -196,10 +238,33 @@ startRaceBtn.addEventListener('click', () => {
                                 trackOne.value = 0;
                                 trackTwo.value = 0;
                                 trackThree.value = 0;
+                                l   et removeBetMarker = document.getElementById('betMarker');
+                                removeBetMarker.remove();
                                 break;
 
+
+
                         }
+
+                        let bet = JSON.parse(localStorage.getItem('currentBet'));
+                        if (bet.snail == 'snail_' + snailThreeName) {
+                            swal('Gewinn! 🤑', 'Du hast richtig gewettet und soeben ' + bet.possibleWin + '€ gewonnen!', 'success', {
+                                buttons: {
+                                    Okay: true
+                                },
+                            })
+
+                                .then((value) => {
+                                    switch (value) {
+                                        case "Okay":
+                                            localStorage.removeItem('currentBet');
+                                            break;
+                                    }
+                                })
+                        }
+
                     });
+
 
             }
 
@@ -211,6 +276,8 @@ startRaceBtn.addEventListener('click', () => {
 //#endregion RACE
 
 //#region BETTING OFFICE
+
+// Open and Close Modal
 const openBettingOfficeBtn = document.getElementById('openBettingOfficeBtn');
 const modal = document.getElementById('bettingOfficeModal');
 
@@ -223,6 +290,7 @@ closeBettingOfficeBtn.addEventListener('click', () => {
     modal.style.display = 'none'
 });
 
+// Load Snails Dropdown Menu
 let dropdown = document.getElementById('snailsDropdown');
 const loadSelectValues = () => {
     snails.forEach((snail) => {
@@ -233,6 +301,7 @@ const loadSelectValues = () => {
     })
 };
 
+// Bet Helper Object
 function Bet(snail, amount, possibleWin) {
     this.snail = snail;
     this.amount = amount;
@@ -245,19 +314,72 @@ submitBetBtn.addEventListener('click', () => {
     let betAmount = document.getElementById('betAmount').value;
 
     console.log('Deine Wette: ' + betAmount + '€ auf ' + selectedSnail);
-    console.log('Dein möglicher Gewinn beträgt somit ' + (betAmount * 100) + '€');
+    console.log('Dein möglicher Gewinn beträgt somit ' + (betAmount * 7) + '€');
 
     if (betAmount != 0) {
 
-        let newBet = new Bet('snail_' + selectedSnail, parseInt(betAmount), (betAmount * 10));
-        console.log(newBet);
-        localStorage.setItem('betFor_' + race, JSON.stringify(newBet));
+        let removeBetMarker = document.getElementById('betMarker');
+
+        if (removeBetMarker) {
+            removeBetMarker.remove;
+        }
+
+        // Create Bet Helper Object
+        var newBet = new Bet('snail_' + selectedSnail, parseInt(betAmount), (betAmount * 7));
+        console.log(newBet)
+        localStorage.setItem('currentBet', JSON.stringify(newBet)); // Save Bet in localStorage
+
+        // Get the Race Tracks to display the Bet Marker
+        let snailOneTrackVal = document.getElementById('snailOne');
+        let snailTwoTrackVal = document.getElementById('snailTwo');
+        let snailThreeTrackVal = document.getElementById('snailThree');
+        let trackVals = [
+            snailOneTrackVal,
+            snailTwoTrackVal,
+            snailThreeTrackVal
+        ]
+
+        console.log(trackVals)
+
+        // Display Bet Marker on the Right Snail
+        for (let i = 0; i < trackVals.length; i++) {
+            if (trackVals[i].innerHTML == selectedSnail) {
+                let bettedSnail = trackVals[i];
+                console.log(bettedSnail)
+                let newBetMark = document.createElement('span');
+                newBetMark.classList.add('bet-marker');
+                newBetMark.id = 'betMarker'
+                newBetMark.innerHTML = 'Wette'
+                let betMarkParent = bettedSnail.parentNode.appendChild(newBetMark);
+            }
+        }
+
+        let bet = JSON.parse(localStorage.getItem('currentBet'));
+
+        modal.style.display = 'none';
 
     } else {
         swal('Ungültige Wette!', 'Um eine Wette abzuschließen musst du einen Betrag über 0€ setzen.', 'error');
     }
 
+});
+
+// Change Display Value if Input Value changes
+let betAmount = document.getElementById('betAmount');
+betAmount.addEventListener('input', () => {
+
+    let display = document.getElementById('possibleWinDisplay');
+    let inputVal = (betAmount.value * 7)
+
+    // Change Value to new one
+    display.innerHTML = inputVal;
+    // Set Display Value to Zero if Input is empty
+    if (inputVal == 0) {
+        display.innerHTML = '0';
+    }
+
 })
+
 
 //#endregion BETTING OFFICE
 
@@ -287,11 +409,14 @@ if (raceObject.participantCount == 2) {
 }
 
 //#endregion DOM
-window.onload = function () {
 
+window.addEventListener('beforeunload', () => {
+    localStorage.removeItem('currentBet')
+});
+
+window.onload = function () {
     displayRaceName();
     getSnails();
     loadNames();
     loadSelectValues();
-
-}
+}  
