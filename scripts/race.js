@@ -238,7 +238,7 @@ startRaceBtn.addEventListener('click', () => {
                                 trackOne.value = 0;
                                 trackTwo.value = 0;
                                 trackThree.value = 0;
-                                l   et removeBetMarker = document.getElementById('betMarker');
+                                let removeBetMarker = document.getElementById('betMarker');
                                 removeBetMarker.remove();
                                 break;
 
