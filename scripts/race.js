@@ -89,13 +89,13 @@ startRaceBtn.addEventListener('click', () => {
 
         var raceInterval = setInterval(() => {
 
-            let snailOneStep = Math.floor(Math.random() * snailOneSpeed); // Random Integer Value between 0 and Max Speed of the Snail
+            let snailOneStep = Math.floor(Math.random() * snailOneSpeed); // Random Integer Value between  and Max Speed of the Snail
 
             let snailTwoStep = Math.floor(Math.random() * snailTwoSpeed); // Random Integer Value between 0 and Max Speed of the Snail
 
             if (snails.length == 3) {
 
-                var snailThreeStep = Math.floor(Math.random() * snailThreeSpeed + 1); // Random Integer Value between 0 and Max Speed of the Snail
+                var snailThreeStep = Math.floor(Math.random() * snailThreeSpeed); // Random Integer Value between 0 and Max Speed of the Snail
 
             }
 
@@ -142,23 +142,36 @@ startRaceBtn.addEventListener('click', () => {
 
                         }
 
-                        let bet = JSON.parse(localStorage.getItem('currentBet'));
-                        if (bet.snail == 'snail_' + snailOneName) {
-                            swal('Gewinn! 🤑', 'Du hast richtig gewettet und soeben ' + bet.possibleWin + '€ gewonnen!', 'success', {
-                                buttons: {
-                                    Okay: true
-                                },
-                            })
+                        let lsKeys = Object.keys(localStorage);
+                        let betKeys = lsKeys.filter((key) => { return key.includes('betFor_'); });
 
-                                .then((value) => {
-                                    switch (value) {
-                                        case "Okay":
-                                            localStorage.removeItem('currentBet');
-                                            let removeBetMarker = document.getElementById('betMarker');
-                                            removeBetMarker.remove();
-                                            break;
-                                    }
+                        for (let i = 0; i < betKeys.length; i++) {
+                            if (betKeys[i] == 'betFor_' + snailOneName) {
+
+                                let betObject = JSON.parse(localStorage.getItem(betKeys[i]));
+                                let betWin = betObject.possibleWin;
+
+                                swal('Gewinn! 🤑', 'Du hast richtig gewettet und soeben ' + betWin + '€ gewonnen!', 'success', {
+                                    buttons: {
+                                        Okay: true
+                                    },
                                 })
+
+                                    .then((value) => {
+                                        switch (value) {
+                                            case "Okay":
+                                                for (let i = 0; i < betKeys.length; i++) {
+                                                    localStorage.removeItem(betKeys[i])
+                                                }
+                                                let removeBetMarker = document.querySelectorAll('.bet-marker')
+                                                for (let i = 0; i < removeBetMarker.length; i++) {
+                                                    removeBetMarker[i].remove();
+                                                }
+                                                break;
+                                        }
+                                    })
+
+                            }
                         }
                     });
 
@@ -195,21 +208,37 @@ startRaceBtn.addEventListener('click', () => {
 
                         }
 
-                        let bet = JSON.parse(localStorage.getItem('currentBet'));
-                        if (bet.snail == 'snail_' + snailTwoName) {
-                            swal('Gewinn! 🤑', 'Du hast richtig gewettet und soeben ' + bet.possibleWin + '€ gewonnen!', 'success', {
-                                buttons: {
-                                    Okay: true
-                                },
-                            })
+                        let lsKeys = Object.keys(localStorage);
+                        let betKeys = lsKeys.filter((key) => { return key.includes('betFor_'); });
 
-                                .then((value) => {
-                                    switch (value) {
-                                        case "Okay":
-                                            localStorage.removeItem('currentBet');
-                                            break;
-                                    }
+                        for (let i = 0; i < betKeys.length; i++) {
+                            if (betKeys[i] == 'betFor_' + snailTwoName) {
+
+                                let betObject = JSON.parse(localStorage.getItem(betKeys[i]));
+                                let betWin = betObject.possibleWin;
+
+                                swal('Gewinn! 🤑', 'Du hast richtig gewettet und soeben ' + betWin + '€ gewonnen!', 'success', {
+                                    buttons: {
+                                        Okay: true
+                                    },
                                 })
+
+                                    .then((value) => {
+                                        switch (value) {
+                                            case "Okay":
+                                                for (let i = 0; i < betKeys.length; i++) {
+                                                    localStorage.removeItem(betKeys[i])
+                                                }
+                                                localStorage.removeItem(betKeys[i]);
+                                                let removeBetMarker = document.querySelectorAll('.bet-marker')
+                                                for (let i = 0; i < removeBetMarker.length; i++) {
+                                                    removeBetMarker[i].remove();
+                                                }
+                                                break;
+                                        }
+                                    })
+
+                            }
                         }
                     });
 
@@ -246,21 +275,36 @@ startRaceBtn.addEventListener('click', () => {
 
                         }
 
-                        let bet = JSON.parse(localStorage.getItem('currentBet'));
-                        if (bet.snail == 'snail_' + snailThreeName) {
-                            swal('Gewinn! 🤑', 'Du hast richtig gewettet und soeben ' + bet.possibleWin + '€ gewonnen!', 'success', {
-                                buttons: {
-                                    Okay: true
-                                },
-                            })
+                        let lsKeys = Object.keys(localStorage);
+                        let betKeys = lsKeys.filter((key) => { return key.includes('betFor_'); });
 
-                                .then((value) => {
-                                    switch (value) {
-                                        case "Okay":
-                                            localStorage.removeItem('currentBet');
-                                            break;
-                                    }
+                        for (let i = 0; i < betKeys.length; i++) {
+                            if (betKeys[i] == 'betFor_' + snailThreeName) {
+
+                                let betObject = JSON.parse(localStorage.getItem(betKeys[i]));
+                                let betWin = betObject.possibleWin;
+
+                                swal('Gewinn! 🤑', 'Du hast richtig gewettet und soeben ' + betWin + '€ gewonnen!', 'success', {
+                                    buttons: {
+                                        Okay: true
+                                    },
                                 })
+
+                                    .then((value) => {
+                                        switch (value) {
+                                            case "Okay":
+                                                for (let i = 0; i < betKeys.length; i++) {
+                                                    localStorage.removeItem(betKeys[i])
+                                                }
+                                                let removeBetMarker = document.querySelectorAll('.bet-marker')
+                                                for (let i = 0; i < removeBetMarker.length; i++) {
+                                                    removeBetMarker[i].remove();
+                                                }
+                                                break;
+                                        }
+                                    })
+
+                            }
                         }
 
                     });
@@ -310,24 +354,29 @@ function Bet(snail, amount, possibleWin) {
 
 const submitBetBtn = document.getElementById('submitBetBtn');
 submitBetBtn.addEventListener('click', () => {
+    // Get selected Snail and entered Bet Amount
     let selectedSnail = dropdown.options[dropdown.selectedIndex].value;
     let betAmount = document.getElementById('betAmount').value;
 
+    // Testing
     console.log('Deine Wette: ' + betAmount + '€ auf ' + selectedSnail);
     console.log('Dein möglicher Gewinn beträgt somit ' + (betAmount * 7) + '€');
 
+    // First Check: If bet amount is higher than 0€
     if (betAmount != 0) {
 
-        let removeBetMarker = document.getElementById('betMarker');
+        // let removeBetMarker = document.getElementById('betMarker');
 
-        if (removeBetMarker) {
-            removeBetMarker.remove;
-        }
+        // if (removeBetMarker) {
+        //     removeBetMarker.remove;
+        // }
 
         // Create Bet Helper Object
         var newBet = new Bet('snail_' + selectedSnail, parseInt(betAmount), (betAmount * 7));
         console.log(newBet)
-        localStorage.setItem('currentBet', JSON.stringify(newBet)); // Save Bet in localStorage
+        let selectedSnailObject = JSON.parse(localStorage.getItem('snail_' + selectedSnail));
+        let selectedSnailName = selectedSnailObject.name;
+        localStorage.setItem('betFor_' + selectedSnailName, JSON.stringify(newBet)); // Save Bet in localStorage
 
         // Get the Race Tracks to display the Bet Marker
         let snailOneTrackVal = document.getElementById('snailOne');
@@ -339,22 +388,26 @@ submitBetBtn.addEventListener('click', () => {
             snailThreeTrackVal
         ]
 
-        console.log(trackVals)
+        // Get Bet Entry
+        let snailBetObject = JSON.parse(localStorage.getItem('betFor_' + selectedSnailName));
+        let snailBetObjectName = snailBetObject.snail;
+
+        // Get Snailname of the Snail that was betted on
+        let bettedSnailObj = JSON.parse(localStorage.getItem(snailBetObjectName))
+        let bettedSnailObjName = bettedSnailObj.name;
 
         // Display Bet Marker on the Right Snail
         for (let i = 0; i < trackVals.length; i++) {
-            if (trackVals[i].innerHTML == selectedSnail) {
+            if (trackVals[i].innerHTML == bettedSnailObjName) {
                 let bettedSnail = trackVals[i];
                 console.log(bettedSnail)
                 let newBetMark = document.createElement('span');
                 newBetMark.classList.add('bet-marker');
-                newBetMark.id = 'betMarker'
-                newBetMark.innerHTML = 'Wette'
-                let betMarkParent = bettedSnail.parentNode.appendChild(newBetMark);
+                newBetMark.id = 'betMarker';
+                newBetMark.innerHTML = 'Wette';
+                bettedSnail.parentNode.appendChild(newBetMark);
             }
         }
-
-        let bet = JSON.parse(localStorage.getItem('currentBet'));
 
         modal.style.display = 'none';
 
@@ -410,8 +463,13 @@ if (raceObject.participantCount == 2) {
 
 //#endregion DOM
 
+// If someones leaves page, delete bets
 window.addEventListener('beforeunload', () => {
-    localStorage.removeItem('currentBet')
+    let lsKeys = Object.keys(localStorage);
+    let betKeys = lsKeys.filter((key) => { return key.includes('betFor_'); });
+    for (let i = 0; i < betKeys.length; i++) {
+        localStorage.removeItem(betKeys[i])
+    }
 });
 
 window.onload = function () {
