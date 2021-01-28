@@ -33,6 +33,7 @@ h1 {
     font-size: 17px;
     font-weight: 400;
     color: #fff;
+    opacity: 0;
 }
 
 /* General Layout */
@@ -249,6 +250,7 @@ input[type=range]::-moz-range-thumb {
     font-size: 30px;
     font-weight: 500;
     color: #fff;
+    opacity: 0;
 }
 
 /* Buttons */

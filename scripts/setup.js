@@ -1,96 +1,125 @@
 // Schneckenrennen
 
 // Open and close Modals
-const addSnailModal = document.getElementById('addSnailModal');
-const addSnailModalContent = document.getElementById('addModContent')
-const openAddSnailModalBtn = document.getElementById('openAddSnailModalBtn');
-const closeAddSnailModal = document.getElementById('closeAddSnailModal');
 
-openAddSnailModalBtn.addEventListener('click', () => {
+function addModalToggle(modalName, openBtnName, closeBtnName) {
+    try {
+        var openBtn = document.getElementById(openBtnName);
+        var closeBtn = document.getElementById(closeBtnName);
+        var modal = document.getElementById(modalName);
 
-    addSnailModal.style.display = 'block';
+        openBtn.addEventListener("click", () => {
+            modal.style.display = "block";
+        });
 
-});
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
 
-closeAddSnailModal.addEventListener('click', () => {
-
-    addSnailModal.style.display = 'none';
-
-});
-
-window.addEventListener('click', (event) => {
-    if (event.target == addSnailModal) {
-        addSnailModal.style.display = "none";
+        window.addEventListener("click", (event) => {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    } catch (e) {
+        console.log("An error occured during the addition of modal events " + e);
     }
-});
+}
+addModalToggle("addSnailModal", "openAddSnailModalBtn", "closeAddSnailModal");
+addModalToggle("editSnailModal", "openEditSnailModalBtn", "closeEditSnailModal");
+addModalToggle("addRaceModal", "openAddRaceModalBtn", "closeAddRaceModal");
+addModalToggle("editRaceModal", "openEditRaceModalBtn", "closeEditRaceModal");
 
-const editSnailModal = document.getElementById('editSnailModal');
-const openEditSnailModalBtn = document.getElementById('openEditSnailModalBtn');
-const closeEditSnailModal = document.getElementById('closeEditSnailModal');
+// const addSnailModal = document.getElementById('addSnailModal');
+// const addSnailModalContent = document.getElementById('addModContent')
+// const openAddSnailModalBtn = document.getElementById('openAddSnailModalBtn');
+// const closeAddSnailModal = document.getElementById('closeAddSnailModal');
 
-openEditSnailModalBtn.addEventListener('click', () => {
+// openAddSnailModalBtn.addEventListener('click', () => {
 
-    editSnailModal.style.display = 'block';
+//     addSnailModal.style.display = 'block';
 
-});
+// });
 
-closeEditSnailModal.addEventListener('click', () => {
+// closeAddSnailModal.addEventListener('click', () => {
 
-    editSnailModal.style.display = 'none';
+//     addSnailModal.style.display = 'none';
 
-});
+// });
 
-window.addEventListener('click', (event) => {
-    if (event.target == editSnailModal) {
-        editSnailModal.style.display = "none";
-    }
-});
+// window.addEventListener('click', (event) => {
+//     if (event.target == addSnailModal) {
+//         addSnailModal.style.display = "none";
+//     }
+// });
 
-const addRaceModal = document.getElementById('addRaceModal');
-const openAddRaceModalBtn = document.getElementById('openAddRaceModalBtn');
-const closeAddRaceModal = document.getElementById('closeAddRaceModal');
+// const editSnailModal = document.getElementById('editSnailModal');
+// const openEditSnailModalBtn = document.getElementById('openEditSnailModalBtn');
+// const closeEditSnailModal = document.getElementById('closeEditSnailModal');
 
-openAddRaceModalBtn.addEventListener('click', () => {
+// openEditSnailModalBtn.addEventListener('click', () => {
 
-    addRaceModal.style.display = 'block';
+//     editSnailModal.style.display = 'block';
 
-});
+// });
 
-closeAddRaceModal.addEventListener('click', () => {
+// closeEditSnailModal.addEventListener('click', () => {
 
-    addRaceModal.style.display = 'none';
-    window.location.reload();
+//     editSnailModal.style.display = 'none';
 
-});
+// });
 
-window.addEventListener('click', (event) => {
-    if (event.target == addRaceModal) {
-        addRaceModal.style.display = "none";
-    }
-});
+// window.addEventListener('click', (event) => {
+//     if (event.target == editSnailModal) {
+//         editSnailModal.style.display = "none";
+//     }
+// });
 
-const editRaceModal = document.getElementById('editRaceModal');
-const openEditRaceModalBtn = document.getElementById('openEditRaceModalBtn');
-const closeEditRaceModal = document.getElementById('closeEditRaceModal');
+// const addRaceModal = document.getElementById('addRaceModal');
+// const openAddRaceModalBtn = document.getElementById('openAddRaceModalBtn');
+// const closeAddRaceModal = document.getElementById('closeAddRaceModal');
 
-openEditRaceModalBtn.addEventListener('click', () => {
+// openAddRaceModalBtn.addEventListener('click', () => {
 
-    editRaceModal.style.display = 'block';
+//     addRaceModal.style.display = 'block';
 
-});
+// });
 
-closeEditRaceModal.addEventListener('click', () => {
+// closeAddRaceModal.addEventListener('click', () => {
 
-    editRaceModal.style.display = 'none';
-    window.location.reload();
+//     addRaceModal.style.display = 'none';
+//     window.location.reload();
 
-});
+// });
 
-window.addEventListener('click', (event) => {
-    if (event.target == editRaceModal) {
-        editRaceModal.style.display = "none";
-    }
-});
+// window.addEventListener('click', (event) => {
+//     if (event.target == addRaceModal) {
+//         addRaceModal.style.display = "none";
+//     }
+// });
+
+// const editRaceModal = document.getElementById('editRaceModal');
+// const openEditRaceModalBtn = document.getElementById('openEditRaceModalBtn');
+// const closeEditRaceModal = document.getElementById('closeEditRaceModal');
+
+// openEditRaceModalBtn.addEventListener('click', () => {
+
+//     editRaceModal.style.display = 'block';
+
+// });
+
+// closeEditRaceModal.addEventListener('click', () => {
+
+//     editRaceModal.style.display = 'none';
+//     window.location.reload();
+
+// });
+
+// window.addEventListener('click', (event) => {
+//     if (event.target == editRaceModal) {
+//         editRaceModal.style.display = "none";
+//     }
+// });
 
 // Creates the table rows and populates values from localStorage (for the snails)
 const buildSnailTableRows = () => {

@@ -151,7 +151,7 @@ startRaceBtn.addEventListener('click', () => {
                                 let betObject = JSON.parse(localStorage.getItem(betKeys[i]));
                                 let betWin = betObject.possibleWin;
 
-                                swal('Gewinn! 🤑', 'Du hast richtig gewettet und soeben ' + betWin + '€ gewonnen!', 'success', {
+                                swal('Gewinn! 💸', 'Du hast richtig gewettet und soeben ' + betWin + '€ gewonnen!', 'success', {
                                     buttons: {
                                         Okay: true
                                     },
@@ -217,7 +217,7 @@ startRaceBtn.addEventListener('click', () => {
                                 let betObject = JSON.parse(localStorage.getItem(betKeys[i]));
                                 let betWin = betObject.possibleWin;
 
-                                swal('Gewinn! 🤑', 'Du hast richtig gewettet und soeben ' + betWin + '€ gewonnen!', 'success', {
+                                swal('Gewinn! 💸', 'Du hast richtig gewettet und soeben ' + betWin + '€ gewonnen!', 'success', {
                                     buttons: {
                                         Okay: true
                                     },
@@ -284,7 +284,7 @@ startRaceBtn.addEventListener('click', () => {
                                 let betObject = JSON.parse(localStorage.getItem(betKeys[i]));
                                 let betWin = betObject.possibleWin;
 
-                                swal('Gewinn! 🤑', 'Du hast richtig gewettet und soeben ' + betWin + '€ gewonnen!', 'success', {
+                                swal('Gewinn! 💸', 'Du hast richtig gewettet und soeben ' + betWin + '€ gewonnen!', 'success', {
                                     buttons: {
                                         Okay: true
                                     },
@@ -311,6 +311,19 @@ startRaceBtn.addEventListener('click', () => {
 
 
             }
+
+            // Update the Place Display 
+            let trackOneNum = parseInt(trackOne.value)
+            let trackTwoNum = parseInt(trackTwo.value)
+            let trackThreeNum = parseInt(trackThree.value)
+
+            let trackValues = [
+                trackOneNum,
+                trackTwoNum,
+                trackThreeNum
+            ]
+
+
 
         }, 30)
     }
@@ -364,12 +377,6 @@ submitBetBtn.addEventListener('click', () => {
 
     // First Check: If bet amount is higher than 0€
     if (betAmount != 0) {
-
-        // let removeBetMarker = document.getElementById('betMarker');
-
-        // if (removeBetMarker) {
-        //     removeBetMarker.remove;
-        // }
 
         // Create Bet Helper Object
         var newBet = new Bet('snail_' + selectedSnail, parseInt(betAmount), (betAmount * 7));
@@ -460,6 +467,8 @@ if (raceObject.participantCount == 2) {
     rankingTrackThree.style.opacity = '0';
 
 }
+
+
 
 //#endregion DOM
 
